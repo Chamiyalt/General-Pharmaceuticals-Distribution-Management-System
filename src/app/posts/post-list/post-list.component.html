@@ -1,0 +1,9 @@
+<mat-accordion multi="true" >
+  <mat-expansion-panel *ngFor="let pos of posts">
+    <mat-expansion-panel-header>{{pos.title}}</mat-expansion-panel-header>
+
+  <p>{{pos.content}}</p>
+  </mat-expansion-panel>
+</mat-accordion>
+
+

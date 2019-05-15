@@ -1,0 +1,11 @@
+
+mat-expansion-panel{
+  text-align: center;
+  width: 80%;
+}
+
+
+
+mat-expansion-panel-header {
+  text-align: center;
+}
