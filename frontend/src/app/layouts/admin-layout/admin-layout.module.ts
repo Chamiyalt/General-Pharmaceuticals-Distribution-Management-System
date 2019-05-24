@@ -7,6 +7,7 @@ import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
 import { UserProfile1Component } from '../../user-profile1/user-profile1.component';
 import { SpcComponent } from '../../spc/spc.component';
+import { SpclistComponent } from '../../spclist/spclist.component';
 import { TableListComponent } from '../../table-list/table-list.component';
 import { TypographyComponent } from '../../typography/typography.component';
 import { IconsComponent } from '../../icons/icons.component';
@@ -49,6 +50,7 @@ import {
     UserProfileComponent,
     UserProfile1Component,
     SpcComponent,
+    SpclistComponent,
     TableListComponent,
     TypographyComponent,
     IconsComponent,

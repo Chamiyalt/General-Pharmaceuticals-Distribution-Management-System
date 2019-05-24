@@ -6,42 +6,43 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Subscription } from 'rxjs';
 
-import { Hospital } from "../hospital.model";
-import { HospitalsService } from "../hospitals.service";
+
+import { SpcsService } from "../spcs.service";
+import { Spc } from "app/spc.model";
 
 @Component({
   selector: 'app-spclist',
   templateUrl: './spclist.component.html',
   styleUrls: ['./spclist.component.css']
 })
-export class UserProfile1Component implements OnInit ,OnDestroy {
+export class SpclistComponent implements OnInit ,OnDestroy {
 
   // constructor() { }
 
-  hospitals: Hospital[] = [];
-  private hospitalsSub: Subscription;
+  spcs: Spc[] = [];
+  private spcsSub: Subscription;
   isLoading = false;
 
-  constructor(public hospitalsService: HospitalsService) {}
+  constructor(public spcsService: SpcsService) {}
 
 
   ngOnInit() {
     this.isLoading=true;
-    this.hospitalsService.getHospitals();
-    this.hospitalsSub = this.hospitalsService.getHospitalUpdateListener()
-      .subscribe((posts: Hospital[]) => {
+    this.spcsService.getSpcs();
+    this.spcsSub = this.spcsService.getSpcUpdateListener()
+      .subscribe((spcs: Spc[]) => {
         this.isLoading = false;
-        this.hospitals = posts;
+        this.spcs = spcs;
       });
 
   }
 
-  onDelete(postId: string) {
-    this.hospitalsService.deleteHospital(postId);
+  onDelete(spcId: string) {
+    this.spcsService.deleteSpc(spcId);
   }
 
   ngOnDestroy() {
-    this.hospitalsSub.unsubscribe();
+    this.spcsSub.unsubscribe();
   }
 
 }

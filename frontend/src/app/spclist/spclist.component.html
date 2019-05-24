@@ -7,29 +7,30 @@
               <div class="card">
 
 <div class="card-header card-header-danger">
-  <h4 class="card-title">Hospitals Details</h4>
+  <h4 class="card-title">Spc Details</h4>
   <p class="card-category">Recorded Details</p>
 </div>
 
 
 <mat-spinner *ngIf="isLoading"></mat-spinner>
-<mat-accordion multi="true" *ngIf="hospitals.length > 0  && !isLoading">
-  <mat-expansion-panel *ngFor="let hospital of hospitals">
+<mat-accordion multi="true" *ngIf="spcs.length > 0  && !isLoading">
+  <mat-expansion-panel *ngFor="let spc of spcs">
     <mat-expansion-panel-header><br><br>
-     <h4>Hospital Name :</h4>{{hospital.Hname }}
+     <h4>OutletName  :</h4>{{spc.OutletName }}
     </mat-expansion-panel-header>
-    <h4>Director Name : </h4> {{ hospital.Dirname }} <br><br>
-    <h4>Address:</h4>{{ hospital.address }}<br><br>
-    <h4>City:</h4>{{ hospital.city }} <br><br>
-    <h4>Hospital content:</h4>{{ hospital.content}}<br><br>
+    <h4>InCharge Name : </h4> {{ spc.InChargeName }} <br><br>
+    <h4>Address:</h4>{{ spc.Address }}<br><br>
+    <h4>RegNumber:</h4>{{ spc.RegNum }} <br><br>
+    <h4>Telephone number :</h4>{{ spc.Tel}}<br><br>
+    <h4>email :</h4>{{ spc.email}}<br><br>
 
     <mat-action-row>
-      <a mat-button color="primary" [routerLink]="['/edit', hospital.id]" routerLinkActive="router-link-active"  >EDIT</a>
-      <button mat-button color="warn" (click)="onDelete(hospital.id)">DELETE</button>
+      <a mat-button color="primary" [routerLink]="['/edit', spc.id]" routerLinkActive="router-link-active"  >EDIT</a>
+      <button mat-button color="warn" (click)="onDelete(spc.id)">DELETE</button>
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
-<p class="info-text mat-body-1" *ngIf="hospitals.length <= 0 && !isLoading">No Hospitals  added yet!</p>
+<p class="info-text mat-body-1" *ngIf="spcs.length <= 0 && !isLoading">No Hospitals  added yet!</p>
 
 </div>
 </div>
