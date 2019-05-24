@@ -38,3 +38,16 @@ router.put("/:id",(req,res,next) =>{
     res.status(200).json({message:'update successful!'});
   });
 });
+
+
+
+
+//spc fetch
+router.get("", (req, res, next) => {
+  Spc.find().then(documents => {
+    res.status(200).json({
+      message: "spcs fetched successfully!",
+      spcs: documents
+    });
+  });
+});
