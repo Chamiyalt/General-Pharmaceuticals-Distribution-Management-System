@@ -35,6 +35,6 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/hospitals", hospitalsRoutes);
-
+app.use("/api/spcs", spcsRoutes);
 
 module.exports = app;
