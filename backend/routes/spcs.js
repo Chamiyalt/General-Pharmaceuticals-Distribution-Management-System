@@ -51,3 +51,15 @@ router.get("", (req, res, next) => {
     });
   });
 });
+
+
+router.get("/:id", (req, res, next) => {
+  Spc.findById(req.params.id)
+  .then(spc =>{
+    if(spc){
+      res.status(200).json(spc);
+    }else{
+      res.status(404).json({message:'spc not found'});
+    }
+  });
+});
