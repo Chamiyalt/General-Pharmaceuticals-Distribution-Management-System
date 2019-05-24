@@ -63,3 +63,16 @@ router.get("/:id", (req, res, next) => {
     }
   });
 });
+
+
+
+//spc delete
+router.delete("/:id", (req, res, next) => {
+  Spc.deleteOne({ _id: req.params.id }).then(result => {
+    console.log(result);
+    res.status(200).json({ message: "spc deleted!" });
+  });
+});
+
+
+module.exports = router;
