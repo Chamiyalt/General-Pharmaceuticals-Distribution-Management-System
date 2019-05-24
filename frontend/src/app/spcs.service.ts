@@ -4,82 +4,83 @@ import { Subject } from "rxjs";
 import { map } from 'rxjs/operators';
 
 
-import { Hospital } from "./hospital.model";
+import { Spc } from "./spc.model";
 import { Router } from "@angular/router";
 
 @Injectable({ providedIn: "root" })
-export class HospitalsService {
-  private hospitals: Hospital[] = [];
-  private hospitalsUpdated = new Subject<Hospital[]>();
+export class SpcsService {
+  private spcs: Spc[] = [];
+  private spcsUpdated = new Subject<Spc[]>();
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  getHospitals() {
+  getSpcs() {
     this.http
-      .get<{ message: string; hospitals: any }>(
-        "http://localhost:3000/api/hospitals"
+      .get<{ message: string; spcs: any }>(
+        "http://localhost:3000/api/spcs"
       )
-      .pipe(map((hospitalData) => {
-        return hospitalData.hospitals.map(hospital => {
+      .pipe(map((spcData) => {
+        return spcData.spcs.map(spc => {
           return {
-            Hname: hospital.Hname,
-            Dirname: hospital.Dirname,
-            address: hospital.address,
-            city: hospital.city,
-            content: hospital.content,
-            id: hospital._id
+            OutletName: spc.OutletName,
+            InChargeName: spc.InChargeName,
+            Address: spc.Address,
+            RegNum: spc.RegNum,
+            Tel: spc.Tel,
+            email: spc.email,
+            id: spc._id
           };
         });
       }))
-      .subscribe(transformedHospitals => {
-        this.hospitals = transformedHospitals;
-        this.hospitalsUpdated.next([...this.hospitals]);
+      .subscribe(transformedSpcs => {
+        this.spcs = transformedSpcs;
+        this.spcsUpdated.next([...this.spcs]);
       });
   }
 
-  getHospitalUpdateListener() {
-    return this.hospitalsUpdated.asObservable();
+  getSpcUpdateListener() {
+    return this.spcsUpdated.asObservable();
   }
 
   //fetching the post to edit
-  getHospital(id: string){
-   return this.http.get<{_id: string , Hname: string , Dirname: string ,address: string, city: string, content: string }>(
-     "http://localhost:3000/api/hospitals/" + id);
+  getSpc(id: string){
+   return this.http.get<{_id: string , OutletName: string , InchargeName: string ,Address: string, RegNum: string, Tel: string,email: string }>(
+     "http://localhost:3000/api/spcs/" + id);
   }
 
 
-  addHospital(Hname: string,Dirname: string,address: string, city: string, content: string) {
-    const hospital: Hospital = { id: null, Hname: Hname, Dirname: Dirname,address:address,city:city, content: content };
+  addSpc(OutletName: string,InchargeName: string,Address: string, RegNum: string, Tel: string, email: string) {
+    const spc: Spc = { id: null, OutletName: OutletName, InchargeName: InchargeName,Address:Address,RegNum:RegNum, Tel: Tel,email: email };
    this.http
-      .post<{ message: string, hospitalId: string }>("http://localhost:3000/api/hospitals", hospital)
+      .post<{ message: string, spcId: string }>("http://localhost:3000/api/spcs", spc)
       .subscribe(responseData => {
-        const id = responseData.hospitalId;
-        hospital.id = id;
-        this.hospitals.push(hospital);
-        this.hospitalsUpdated.next([...this.hospitals]);
+        const id = responseData.spcId;
+        spc.id = id;
+        this.spcs.push(spc);
+        this.spcsUpdated.next([...this.spcs]);
         this.router.navigate(["/"]);
       });
   }
 
-  updateHospital(id: string, Hname: string,Dirname: string,address: string,city: string, content: string){
-      const hospital: Hospital = { id: id,Hname: Hname,Dirname: Dirname,address:address,city:city,content: content};
-      this.http.put("http://localhost:3000/api/hospitals/" + id, hospital)
+  updateSpc(id: string, OutletName: string,InchargeName: string,Address: string,RegNum: string, Tel: string,email:string){
+      const spc: Spc = { id: id,OutletName: OutletName,InchargeName: InchargeName,Address:Address,RegNum:RegNum,Tel: Tel,email: email};
+      this.http.put("http://localhost:3000/api/spcs/" + id, spc)
       .subscribe(response => {
-        const updatedHospitals = [...this.hospitals];
-        const oldHospitalIndex = updatedHospitals.findIndex( p => p.id === hospital.id);
-        updatedHospitals[oldHospitalIndex] = hospital;
-        this.hospitals = updatedHospitals;
-        this.hospitalsUpdated.next([...this.hospitals]);
+        const updatedSpcs = [...this.spcs];
+        const oldSpcIndex = updatedSpcs.findIndex( p => p.id === spc.id);
+        updatedSpcs[oldSpcIndex] = spc;
+        this.spcs = updatedSpcs;
+        this.spcsUpdated.next([...this.spcs]);
         this.router.navigate(["/"]);
       });
   }
 
-  deleteHospital(hospitalId: string) {
-    this.http.delete("http://localhost:3000/api/hospitals/" + hospitalId)
+  deleteSpc(spcId: string) {
+    this.http.delete("http://localhost:3000/api/spcs/" + spcId)
       .subscribe(() => {
-        const updatedHospitals = this.hospitals.filter(hospital => hospital.id !==hospitalId);
-        this.hospitals = updatedHospitals;
-        this.hospitalsUpdated.next([...this.hospitals]);
+        const updatedSpcs = this.spcs.filter(spc => spc.id !== spcId);
+        this.spcs = updatedSpcs;
+        this.spcsUpdated.next([...this.spcs]);
       });
   }
 }
