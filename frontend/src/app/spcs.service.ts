@@ -44,13 +44,13 @@ export class SpcsService {
 
   //fetching the post to edit
   getSpc(id: string){
-   return this.http.get<{_id: string , OutletName: string , InchargeName: string ,Address: string, RegNum: string, Tel: string,email: string }>(
+   return this.http.get<{_id: string , OutletName: string , InChargeName: string ,Address: string, RegNum: string, Tel: string,email: string }>(
      "http://localhost:3000/api/spcs/" + id);
   }
 
 
-  addSpc(OutletName: string,InchargeName: string,Address: string, RegNum: string, Tel: string, email: string) {
-    const spc: Spc = { id: null, OutletName: OutletName, InchargeName: InchargeName,Address:Address,RegNum:RegNum, Tel: Tel,email: email };
+  addSpc(OutletName: string , InChargeName: string,Address: string, RegNum: string, Tel: string, email: string) {
+    const spc: Spc = { id: null, OutletName: OutletName, InChargeName: InChargeName,Address:Address,RegNum:RegNum, Tel: Tel,email: email };
    this.http
       .post<{ message: string, spcId: string }>("http://localhost:3000/api/spcs", spc)
       .subscribe(responseData => {
@@ -62,8 +62,8 @@ export class SpcsService {
       });
   }
 
-  updateSpc(id: string, OutletName: string,InchargeName: string,Address: string,RegNum: string, Tel: string,email:string){
-      const spc: Spc = { id: id,OutletName: OutletName,InchargeName: InchargeName,Address:Address,RegNum:RegNum,Tel: Tel,email: email};
+  updateSpc(id: string, OutletName: string,InChargeName: string,Address: string,RegNum: string, Tel: string,email:string){
+      const spc: Spc = { id: id,OutletName: OutletName,InChargeName: InChargeName,Address:Address,RegNum:RegNum,Tel: Tel,email: email};
       this.http.put("http://localhost:3000/api/spcs/" + id, spc)
       .subscribe(response => {
         const updatedSpcs = [...this.spcs];
