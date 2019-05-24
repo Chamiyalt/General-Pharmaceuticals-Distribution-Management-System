@@ -10,9 +10,9 @@ import { Hospital } from "../hospital.model";
 import { HospitalsService } from "../hospitals.service";
 
 @Component({
-  selector: 'app-user-profile1',
-  templateUrl: './user-profile1.component.html',
-  styleUrls: ['./user-profile1.component.css']
+  selector: 'app-spclist',
+  templateUrl: './spclist.component.html',
+  styleUrls: ['./spclist.component.css']
 })
 export class UserProfile1Component implements OnInit ,OnDestroy {
 

@@ -6,15 +6,15 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Subscription } from 'rxjs';
 
-import { Hospital } from "../hospital.model";
-import { HospitalsService } from "../hospitals.service";
+import { Spc } from "../spc.model";
+import {SpcsService } from "../spcs.service";
 
 @Component({
   selector: 'app-spc',
   templateUrl: './spc.component.html',
   styleUrls: ['./spc.component.css']
 })
-export class UserProfile1Component implements OnInit ,OnDestroy {
+export class SpcComponent implements OnInit ,OnDestroy {
 
   // constructor() { }
 

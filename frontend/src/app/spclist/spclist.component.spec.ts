@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserProfile1Component } from './user-profile1.component';
+import { UserProfile1Component } from './spclist.component';
 
 describe('UserProfileComponent', () => {
   let component: UserProfile1Component;
