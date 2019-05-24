@@ -4,14 +4,17 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes =[
   {
     path: '',
     // redirectTo: 'dashboard',
-    redirectTo: 'user-profile',
+    redirectTo: 'dashboard',
     pathMatch: 'full',
-  }, {
+  },
+
+    {
     path: '',
     component: AdminLayoutComponent,
     children: [

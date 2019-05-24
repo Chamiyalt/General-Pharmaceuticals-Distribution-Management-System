@@ -41,6 +41,7 @@ import {
     MatToolbarModule,
     MatExpansionModule,
     MatProgressSpinnerModule
+
   ],
   declarations: [
     DashboardComponent,
