@@ -10,6 +10,18 @@ import { ComponentsModule } from './components/components.module';
 
 import { AppComponent } from './app.component';
 
+
+import {
+  MatInputModule,
+  MatCardModule,
+  MatButtonModule,
+  MatToolbarModule,
+  MatExpansionModule,
+  MatProgressSpinnerModule
+} from '@angular/material';
+
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { UserProfile1Component } from './user-profile1/user-profile1.component';
@@ -23,6 +35,7 @@ import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -31,17 +44,36 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     HttpModule,
     ComponentsModule,
     RouterModule,
+    FormsModule,
+    HttpClientModule,
     AppRoutingModule,
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatExpansionModule,
+    MatProgressSpinnerModule,
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     })
   ],
+  exports: [
+    MatInputModule,
+    MatCardModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatExpansionModule,
+    MatProgressSpinnerModule,
+  ],
+
+
   declarations: [
     AppComponent,
     AdminLayoutComponent,
 
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

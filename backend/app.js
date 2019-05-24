@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-const postsRoutes = require("./routes/hospitals");
+const hospitalsRoutes = require("./routes/hospitals");
 
 const app = express();
 // pM2VIQQ9UffJCUJl
@@ -33,6 +33,6 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/api/hospitals", postsRoutes);
+app.use("/api/hospitals", hospitalsRoutes);
 
 module.exports = app;

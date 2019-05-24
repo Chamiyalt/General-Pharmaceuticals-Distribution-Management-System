@@ -19,7 +19,11 @@ import {
   MatRippleModule,
   MatFormFieldModule,
   MatTooltipModule,
-  MatSelectModule
+  MatSelectModule,
+  MatCardModule,
+  MatToolbarModule,
+  MatExpansionModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 @NgModule({
   imports: [
@@ -32,6 +36,11 @@ import {
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+    MatInputModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatExpansionModule,
+    MatProgressSpinnerModule
   ],
   declarations: [
     DashboardComponent,
