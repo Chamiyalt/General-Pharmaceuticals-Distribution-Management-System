@@ -27,7 +27,7 @@ router.put("/:id",(req,res,next) =>{
   const spc = new Spc({
     _id: req.body.id,
     OutletName: req.body.OutletName,
-    OutletName: req.body.InChargeName,
+    InChargeName: req.body.InChargeName,
     Address: req.body.Address,
     RegNum: req.body.RegNum,
     Tel: req.body.Tel,

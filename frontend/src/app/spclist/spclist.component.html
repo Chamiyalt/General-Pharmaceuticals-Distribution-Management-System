@@ -25,12 +25,12 @@
     <h4>email :</h4>{{ spc.email}}<br><br>
 
     <mat-action-row>
-      <a mat-button color="primary" [routerLink]="['/edit', spc.id]" routerLinkActive="router-link-active"  >EDIT</a>
+      <a mat-button color="primary" [routerLink]="['/editspc',spc.id]" routerLinkActive="router-link-active"  >EDIT</a>
       <button mat-button color="warn" (click)="onDelete(spc.id)">DELETE</button>
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
-<p class="info-text mat-body-1" *ngIf="spcs.length <= 0 && !isLoading">No Hospitals  added yet!</p>
+<p class="info-text mat-body-1" *ngIf="spcs.length <= 0 && !isLoading">No Spcs added yet!</p>
 
 </div>
 </div>
