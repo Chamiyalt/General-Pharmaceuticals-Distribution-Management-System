@@ -8,7 +8,7 @@ import { Medi } from './medi.model';
 import { Router } from "@angular/router";
 
 @Injectable({ providedIn: "root" })
-export class HospitalsService {
+export class MedisService {
   private medis: Medi[] = [];
   private medisUpdated = new Subject<Medi[]>();
 

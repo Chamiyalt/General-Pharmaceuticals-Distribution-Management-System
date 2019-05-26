@@ -2,25 +2,26 @@ import { Component, OnInit } from '@angular/core';
 
 // import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
-import { Hospital } from '../hospital.model';
+
 import { HospitalsService } from '../hospitals.service';
 
 import { ActivatedRoute, ParamMap } from "@angular/router"
+import { Medi } from 'app/medi.model';
 
 
 
 @Component({
-  selector: 'app-user-profile',
-  templateUrl: './user-profile.component.html',
-  styleUrls: ['./user-profile.component.css']
+  selector: 'app-medi',
+  templateUrl: './medi.component.html',
+  styleUrls: ['./medi.component.css']
 })
-export class UserProfileComponent implements OnInit {
+export class MediComponent implements OnInit {
 
   // constructor() { }
 
 
   isLoading = false;
-  hospital: Hospital;
+  medi: Medi;
   private mode = 'create';
   private hospitalId: string;
 
