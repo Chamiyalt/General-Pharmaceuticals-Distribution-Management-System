@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 // import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
 
-import { HospitalsService } from '../hospitals.service';
+import { MedisService } from '../medis.service';
 
 import { ActivatedRoute, ParamMap } from "@angular/router"
 import { Medi } from 'app/medi.model';
@@ -23,41 +23,41 @@ export class MediComponent implements OnInit {
   isLoading = false;
   medi: Medi;
   private mode = 'create';
-  private hospitalId: string;
+  private mediId: string;
 
 
-  constructor(public hospitalsService: HospitalsService, public route: ActivatedRoute) {}
+  constructor(public medisService: MedisService, public route: ActivatedRoute) {}
 
 
   ngOnInit() {
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
-      if(paramMap.has('hospitalId')){
+      if(paramMap.has('mediId')){
         this.mode = 'edit';
-        this.hospitalId = paramMap.get('hospitalId');
+        this.mediId = paramMap.get('mediId');
         this.isLoading = true;
-        this.hospitalsService.getHospital(this.hospitalId)
-        .subscribe(hospitalData =>{
+        this.medisService.getMedi(this.mediId)
+        .subscribe(mediData =>{
           this.isLoading = false;
-          this.hospital = { id:hospitalData._id, Hname: hospitalData.Hname , Dirname: hospitalData.Dirname,address: hospitalData.address, city: hospitalData.city, content:hospitalData.content };
+          this.medi = { id:mediData._id, DrugName: mediData.DrugName , category: mediData.category,code: mediData.code};
         });
       }else{
         this.mode = 'create';
-        this.hospitalId = null;
+        this.mediId = null;
       }
     });
 
   }
 
 
-  onSaveHospital(form: NgForm) {
+  onSaveMedi(form: NgForm) {
     if (form.invalid) {
       return;
     }
     this.isLoading=true;
     if(this.mode === 'create'){
-      this.hospitalsService.addHospital(form.value.Hname,form.value.Dirname,form.value.address,form.value.city,form.value.content);
+      this.medisService.addMedi(form.value.DrugName,form.value.category,form.value.code);
     }else{
-      this.hospitalsService.updateHospital(this.hospitalId,form.value.Hname,form.value.Dirname,form.value.address,form.value.city,form.value.content);
+      this.medisService.updateMedi(this.mediId,form.value.DrugName,form.value.category,form.value.code);
     }
     form.resetForm();
   }

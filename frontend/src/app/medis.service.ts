@@ -46,7 +46,7 @@ export class MedisService {
   }
 
 
-  addHospital(DrugName: string,category: string,code: string) {
+  addMedi(DrugName: string,category: string,code: string) {
     const medi: Medi = { id: null, DrugName: DrugName, category: category,code:code};
    this.http
       .post<{ message: string, mediId: string }>("http://localhost:3000/api/medis", medi)
@@ -59,7 +59,7 @@ export class MedisService {
       });
   }
 
-  updateHospital(id: string, DrugName: string,category: string,code: string){
+  updateMedi(id: string, DrugName: string,category: string,code: string){
       const medi: Medi = { id: id,DrugName: DrugName,category: category,code:code};
       this.http.put("http://localhost:3000/api/medis/" + id, medi)
       .subscribe(response => {
