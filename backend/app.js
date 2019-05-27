@@ -1,31 +1,40 @@
-const express = require('express');
+const express = require("express");
+const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+
+const spcsRoutes = require("./routes/spcs");
+const hospitalsRoutes = require("./routes/hospitals");
 
 const app = express();
+// pM2VIQQ9UffJCUJl
+// 134.209.146.166
 
-app.use((req, res, next) =>{
-  res.setHeader("Access-Control-Allow-Origin","*");
-  res.setHeader("Access-Control-Allow-Header","Origin, X-Requested-With, Content-Type, Accept");
-  res.setHeader("Access-Control-Allow-Methods","GET, POST, PATCH, DELETE, PUT OPTIONS"
+// mongoose.connect("mongodb+srv://mihiran:pM2VIQQ9UffJCUJl@cluster0-kywho.mongodb.net/node-angular?retryWrites=true")
+//   .then(() => {
+//     console.log("Connected to database!");
+//   })
+//   .catch(() => {
+//     console.log("Connection failed!");
+//   });
+
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PATCH,PUT, DELETE, OPTIONS"
   );
   next();
-})
-
-
-
-app.use("/api/posts",(req ,res, next)=> {
- const posts = [{
-   id:'sdadass' , title:'first server sidee post', content:'this is comming from server'
- },
- {
-  id:'sdadass1' , title:'second server side post', content:'this is comming from server'
-}
-];
-
-res.status(200).json({
-  message: 'Post fetch succesfully',
-  posts:posts
-})
-
 });
 
-module.exports = app ;
+app.use("/api/hospitals", hospitalsRoutes);
+app.use("/api/spcs", spcsRoutes);
+
+module.exports = app;

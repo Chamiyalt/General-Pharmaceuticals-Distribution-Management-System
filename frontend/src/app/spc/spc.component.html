@@ -1,0 +1,111 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Spc Details</h4>
+                        <!-- <p class="card-category">Complete Hospital Details</p> -->
+                    </div>
+                    <div class="card-body">
+
+
+                            <!-- <mat-spinner *ngIf="isLoading"></mat-spinner> -->
+
+                      <form (submit)="onSaveSpc(postForm)" #postForm="ngForm" *ngIf="!isLoading">
+                        <mat-form-field>
+                          <input
+                            matInput
+                            type="text"
+                            name="OutletName"
+                            [ngModel] = "spc?.OutletName"
+                            required
+                            minlength="3"
+                            placeholder="Outlet Name "
+                            #OutletName="ngModel">
+                          <mat-error *ngIf="OutletName.invalid">Please enter a Outlet name.</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input
+                              matInput
+                              type="text"
+                              name="InChargeName"
+                              [ngModel] = "spc?.InChargeName"
+                              required
+                              minlength="3"
+                              placeholder="InCharge name"
+                              #InChargeName="ngModel">
+                            <mat-error *ngIf="InChargeName.invalid">Please enter a InCharge name.</mat-error>
+                          </mat-form-field>
+
+                          <mat-form-field>
+                              <input
+                                matInput
+                                type="text"
+                                name="Address"
+                                [ngModel] = "spc?.Address"
+                                required
+                                minlength="3"
+                                placeholder="Address"
+                                #Address="ngModel">
+                              <mat-error *ngIf="Address.invalid">Please enter Address </mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field>
+                                <input
+                                  matInput
+                                  type="text"
+                                  name="RegNum"
+                                  [ngModel] = "spc?.RegNum"
+                                  required
+                                  minlength="3"
+                                  placeholder="RegNum"
+                                  #RegNum="ngModel">
+                                <mat-error *ngIf="RegNum.invalid">Please enter Reg number.</mat-error>
+                              </mat-form-field>
+
+
+                              <mat-form-field>
+                                  <input
+                                    matInput
+                                    type="text"
+                                    name="email"
+                                    [ngModel] = "spc?.email"
+                                    required
+                                    minlength="3"
+                                    placeholder="email"
+                                    #email="ngModel">
+                                  <mat-error *ngIf="email.invalid">Please enter email.</mat-error>
+                                </mat-form-field>
+
+
+
+                        <mat-form-field>
+                          <textarea
+                            matInput
+                            rows="4"
+                            name="Tel"
+                            [ngModel] = "spc?.Tel"
+                            required
+                            placeholder=" Tel"
+                            #Tel="ngModel"></textarea>
+                          <mat-error *ngIf="Tel.invalid">Please enter a Tel.</mat-error>
+                        </mat-form-field>
+                        <button
+                          mat-raised-button
+                          color="accent"
+                          type="submit">Save Post</button>
+                      </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </div>
+
+
+
+
+
