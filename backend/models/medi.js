@@ -7,5 +7,5 @@ const mediSchema = mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('Medi', spcSchema);
+module.exports = mongoose.model('Medi', mediSchema);
 
