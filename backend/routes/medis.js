@@ -3,7 +3,7 @@ const Medi = require("../models/medi");
 
 const router = express.Router();
 
-//medicine add
+// add
 router.post("", (req, res, next) => {
   const medi = new Medi({
     Drug: req.body.Drug,
@@ -19,7 +19,7 @@ router.post("", (req, res, next) => {
 });
 
 
-//medicine update
+// update
 router.put("/:id",(req,res,next) =>{
   const medi = new Medi({
     _id: req.body.id,
@@ -60,7 +60,7 @@ router.get("/:id", (req, res, next) => {
 
 
 
-//medicine delete
+//delete
 router.delete("/:id", (req, res, next) => {
   Medi.deleteOne({ _id: req.params.id }).then(result => {
     console.log(result);
