@@ -16,14 +16,14 @@
 <mat-accordion multi="true" *ngIf="medis.length > 0  && !isLoading">
   <mat-expansion-panel *ngFor="let medi of medis">
     <mat-expansion-panel-header><br><br>
-     <h4>DrugName :</h4>{{medi.DrugName }}
+     <h4>Drug name:</h4>{{medi.Drug }}
     </mat-expansion-panel-header>
     <h4>category Name : </h4> {{ medi.category }} <br><br>
     <h4>Code:</h4>{{ medi.code }}<br><br>
 
 
     <mat-action-row>
-      <!-- <a mat-button color="primary" [routerLink]="['/editspc',spc.id]" routerLinkActive="router-link-active"  >EDIT</a> -->
+      <a mat-button color="primary" [routerLink]="['/editmedi',medi.id]" routerLinkActive="router-link-active"  >EDIT</a>
       <button mat-button color="warn" (click)="onDelete(medi.id)">DELETE</button>
     </mat-action-row>
   </mat-expansion-panel>

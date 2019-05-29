@@ -38,7 +38,7 @@ export class MediComponent implements OnInit {
         this.medisService.getMedi(this.mediId)
         .subscribe(mediData =>{
           this.isLoading = false;
-          this.medi = { id:mediData._id, DrugName: mediData.DrugName , category: mediData.category,code: mediData.code};
+          this.medi = { id:mediData._id, Drug: mediData.Drug , category: mediData.category,code: mediData.code};
         });
       }else{
         this.mode = 'create';
@@ -55,9 +55,9 @@ export class MediComponent implements OnInit {
     }
     this.isLoading=true;
     if(this.mode === 'create'){
-      this.medisService.addMedi(form.value.DrugName,form.value.category,form.value.code);
+      this.medisService.addMedi(form.value.Drug,form.value.category,form.value.code);
     }else{
-      this.medisService.updateMedi(this.mediId,form.value.DrugName,form.value.category,form.value.code);
+      this.medisService.updateMedi(this.mediId,form.value.Drug,form.value.category,form.value.code);
     }
     form.resetForm();
   }

@@ -2,9 +2,9 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Subject } from "rxjs";
 import { map } from 'rxjs/operators';
+import 'rxjs/add/operator/map';
 
-
-import { Medi } from './medi.model';
+import { Medi } from "./medi.model";
 import { Router } from "@angular/router";
 
 @Injectable({ providedIn: "root" })
@@ -22,7 +22,7 @@ export class MedisService {
       .pipe(map((mediData) => {
         return mediData.medis.map(medi => {
           return {
-            DrugName: medi.DrugName,
+            Drug: medi.Drug,
             category: medi.category,
             code: medi.code,
             id: medi._id
@@ -41,13 +41,13 @@ export class MedisService {
 
   //fetching the post to edit
   getMedi(id: string){
-   return this.http.get<{_id: string , DrugName: string , category: string ,code: string}>(
+   return this.http.get<{_id: string , Drug: string , catrgory: string ,code: string }>(
      "http://localhost:3000/api/medis/" + id);
   }
 
 
-  addMedi(DrugName: string,category: string,code: string) {
-    const medi: Medi = { id: null, DrugName: DrugName, category: category,code:code};
+  addMedi(Drug: string,category: string,code: string) {
+    const medi: Medi = { id: null, Drug: Drug, category: category,code:code};
    this.http
       .post<{ message: string, mediId: string }>("http://localhost:3000/api/medis", medi)
       .subscribe(responseData => {
@@ -59,8 +59,8 @@ export class MedisService {
       });
   }
 
-  updateMedi(id: string, DrugName: string,category: string,code: string){
-      const medi: Medi = { id: id,DrugName: DrugName,category: category,code:code};
+  updateMedi(id: string,Drug: string,category: string,code: string){
+      const medi: Medi = { id: id,Drug: Drug,category: category,code:code};
       this.http.put("http://localhost:3000/api/medis/" + id, medi)
       .subscribe(response => {
         const updatedMedis = [...this.medis];

@@ -1,8 +1,5 @@
 //import { Component, OnInit } from '@angular/core';
 
-
-
-
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Subscription } from 'rxjs';
 
@@ -11,13 +8,13 @@ import { MedisService } from "../medis.service";
 import { Medi } from "app/medi.model";
 
 @Component({
-  selector: 'app-spclist',
-  templateUrl: './spclist.component.html',
-  styleUrls: ['./spclist.component.css']
+  selector: 'app-medilist',
+  templateUrl: './medilist.component.html',
+  styleUrls: ['./medilist.component.css']
 })
 export class MedilistComponent implements OnInit ,OnDestroy {
 
-  // constructor() { }
+
 
   medis: Medi[] = [];
   private medisSub: Subscription;
@@ -27,7 +24,7 @@ export class MedilistComponent implements OnInit ,OnDestroy {
 
 
   ngOnInit() {
-    this.isLoading=true;
+    this.isLoading = true;
     this.medisService.getMedis();
     this.medisSub = this.medisService.getMediUpdateListener()
       .subscribe((medis: Medi[]) => {

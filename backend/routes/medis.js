@@ -3,10 +3,10 @@ const Medi = require("../models/medi");
 
 const router = express.Router();
 
-//spc add
+//medicine add
 router.post("", (req, res, next) => {
   const medi = new Medi({
-    DrugName: req.body.DrugName,
+    Drug: req.body.Drug,
     category: req.body.category,
     code: req.body.code
   });
@@ -19,11 +19,11 @@ router.post("", (req, res, next) => {
 });
 
 
-//spc update
+//medicine update
 router.put("/:id",(req,res,next) =>{
   const medi = new Medi({
     _id: req.body.id,
-    DrugName: req.body.DrugName,
+    Drug: req.body.Drug,
     category: req.body.category,
     code: req.body.code
   });
@@ -36,12 +36,12 @@ router.put("/:id",(req,res,next) =>{
 
 
 
-//spc fetch
+//medicine fetch
 router.get("", (req, res, next) => {
   Medi.find().then(documents => {
     res.status(200).json({
       message: "medis fetched successfully!",
-      medi: documents
+      medis: documents
     });
   });
 });
@@ -60,7 +60,7 @@ router.get("/:id", (req, res, next) => {
 
 
 
-//spc delete
+//medicine delete
 router.delete("/:id", (req, res, next) => {
   Medi.deleteOne({ _id: req.params.id }).then(result => {
     console.log(result);

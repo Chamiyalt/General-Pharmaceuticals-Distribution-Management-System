@@ -1,6 +1,6 @@
 export interface Medi {
   id: string;
-  DrugName: string;
+  Drug: string;
   category: string;
   code: string;
 }
