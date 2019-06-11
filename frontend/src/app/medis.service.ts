@@ -41,7 +41,7 @@ export class MedisService {
 
   //fetching the post to edit
   getMedi(id: string){
-   return this.http.get<{_id: string , Drug: string , catrgory: string ,code: string }>(
+   return this.http.get<{_id: string , Drug: string , category: string ,code: string }>(
      "http://localhost:3000/api/medis/" + id);
   }
 
