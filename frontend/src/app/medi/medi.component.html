@@ -3,8 +3,8 @@
       <div class="row">
           <div class="col-md-10">
               <div class="card">
-                  <div class="card-header card-header-danger">
-                      <h4 class="card-title">Hospitals Details</h4>
+                  <div class="card-header card-header-info">
+                      <h4 class="card-title">Medicine Details</h4>
                       <!-- <p class="card-category">Complete Hospital Details</p> -->
                   </div>
                   <div class="card-body">
@@ -12,76 +12,51 @@
 
                           <!-- <mat-spinner *ngIf="isLoading"></mat-spinner> -->
 
-                    <form (submit)="onSaveHospital(postForm)" #postForm="ngForm" *ngIf="!isLoading">
+                    <form (submit)="onSaveMedi(postForm)" #postForm="ngForm" *ngIf="!isLoading">
                       <mat-form-field>
                         <input
                           matInput
                           type="text"
-                          name="Hname"
-                          [ngModel] = "hospital?.Hname"
+                          name="Drug"
+                          [ngModel] = "medi?.Drug"
                           required
                           minlength="3"
-                          placeholder="Hospital name"
-                          #Hname="ngModel">
-                        <mat-error *ngIf="Hname.invalid">Please enter a hospital name.</mat-error>
+                          placeholder="Drug name"
+                          #Drug="ngModel">
+                        <mat-error *ngIf="Drug.invalid">Please enter a Drug name.</mat-error>
                       </mat-form-field>
 
                       <mat-form-field>
                           <input
                             matInput
                             type="text"
-                            name="Dirname"
-                            [ngModel] = "hospital?.Dirname"
+                            name="category"
+                            [ngModel] = "medi?.category"
                             required
                             minlength="3"
-                            placeholder="Director name"
-                            #Dirname="ngModel">
-                          <mat-error *ngIf="Dirname.invalid">Please enter a Director name.</mat-error>
+                            placeholder="Category name"
+                            #category="ngModel">
+                          <mat-error *ngIf="category.invalid">Please enter a category name.</mat-error>
                         </mat-form-field>
 
                         <mat-form-field>
                             <input
                               matInput
                               type="text"
-                              name="address"
-                              [ngModel] = "hospital?.address"
+                              name="code"
+                              [ngModel] = "medi?.code"
                               required
                               minlength="3"
-                              placeholder="address"
-                              #address="ngModel">
-                            <mat-error *ngIf="address.invalid">Please enter address </mat-error>
+                              placeholder="Medicine Code"
+                              #code="ngModel">
+                            <mat-error *ngIf="code.invalid">Please enter medicine code </mat-error>
                           </mat-form-field>
 
-                          <mat-form-field>
-                              <input
-                                matInput
-                                type="text"
-                                name="city"
-                                [ngModel] = "hospital?.city"
-                                required
-                                minlength="3"
-                                placeholder="City"
-                                #city="ngModel">
-                              <mat-error *ngIf="city.invalid">Please enter city.</mat-error>
-                            </mat-form-field>
 
-
-
-                      <mat-form-field>
-                        <textarea
-                          matInput
-                          rows="4"
-                          name="content"
-                          [ngModel] = "hospital?.content"
-                          required
-                          placeholder="Post Content"
-                          #content="ngModel"></textarea>
-                        <mat-error *ngIf="content.invalid">Please enter a post name.</mat-error>
-                      </mat-form-field>
                       <button
                         mat-raised-button
                         color="accent"
-                        type="submit">Save Post</button>
+                        type="submit">Save Medicine</button>
                     </form>
                   </div>
               </div>

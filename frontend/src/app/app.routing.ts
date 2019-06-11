@@ -4,7 +4,7 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+//import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes =[
   {
@@ -32,6 +32,8 @@ const routes: Routes =[
     // { path: 'upgrade',        component: UpgradeComponent },
     // { path: '',               redirectTo: 'dashboard', pathMatch: 'full' }
 ];
+
+// This is a change
 
 @NgModule({
   imports: [

@@ -27,11 +27,11 @@ export class SpclistComponent implements OnInit ,OnDestroy {
 
 
   ngOnInit() {
-    this.isLoading=true;
+   // this.isLoading=true;
     this.spcsService.getSpcs();
     this.spcsSub = this.spcsService.getSpcUpdateListener()
       .subscribe((spcs: Spc[]) => {
-        this.isLoading = false;
+       // this.isLoading = false;
         this.spcs = spcs;
       });
 

@@ -13,6 +13,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/user-profile1', title: 'Existing Hospital list',  icon:'person', class: '' },
     { path: '/spc', title: 'Spc',  icon:'person', class: '' },
     { path: '/spclist', title: 'SpcList',  icon:'person', class: '' },
+    { path: '/medi', title: 'Add Medicine',  icon:'person', class: '' },
+    { path: '/medilist', title: 'Existing Medicine List',  icon:'person', class: '' },
     { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
     { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },
     { path: '/icons', title: 'Icons',  icon:'bubble_chart', class: '' },
