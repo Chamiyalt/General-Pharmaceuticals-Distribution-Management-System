@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 
 import { AppRoutingModule } from './app.routing';
@@ -67,7 +68,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule,
     MatToolbarModule,
     MatExpansionModule,
-    MatProgressSpinnerModule,
+    MatProgressSpinnerModule
+
   ],
 
 
