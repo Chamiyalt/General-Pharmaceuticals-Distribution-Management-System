@@ -7,6 +7,8 @@ import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { ChartsModule } from 'ng2-charts';
+
 // import { HospitalCreateComponent } from './Hospitals/hospital-create/hospital-create.component';
 // import { HospitalListComponent } from './Hospitals/hospital-list/hospital-list.component';
 
@@ -14,6 +16,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   imports: [
     CommonModule,
     RouterModule,
+    ChartsModule
+
     // FormsModule,
     // HttpClientModule,
   ],
