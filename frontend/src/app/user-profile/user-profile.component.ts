@@ -1,4 +1,4 @@
-import { Component, OnInit,OnDestroy,ViewChild, ElementRef  } from '@angular/core';
+ import { Component, OnInit,OnDestroy,ViewChild, ElementRef  } from '@angular/core';
 
 // import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
@@ -127,7 +127,7 @@ export class UserProfileComponent implements OnInit  {
 
   editHospital(form: NgForm){
     this.closeModal()
-    
+
     this.isLoading=true;
     this.hospitalsService.updateHospital(this.hospital.id,form.value.Hname,form.value.Dirname,form.value.address,form.value.city,form.value.content);
     form.resetForm();
