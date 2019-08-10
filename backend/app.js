@@ -10,13 +10,11 @@ const app = express();
 // pM2VIQQ9UffJCUJl
 // 134.209.146.166
 
-// mongoose.connect("mongodb+srv://mihiran:pM2VIQQ9UffJCUJl@cluster0-kywho.mongodb.net/node-angular?retryWrites=true")
-//   .then(() => {
-//     console.log("Connected to database!");
-//   })
-//   .catch(() => {
-//     console.log("Connection failed!");
-//   });
+mongoose.connect("mongodb+srv://chamiyalt:Chamin@123@cluster0-hw2z6.mongodb.net/node-angular?retryWrites=true",{ useNewUrlParser: true }).then(()=>{
+  console.log('connected to database');
+}).catch(()=> {
+  console.log('connection faild');
+});
 
 
 app.use(bodyParser.json());
