@@ -41,10 +41,6 @@ import {
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HospitalDistComponent } from './hospital-dist/hospital-dist.component';
-import { DrugDealerComponent } from './drug-dealer/drug-dealer.component';
-import { DrugDealerlistComponent } from './drug-dealerlist/drug-dealerlist.component';
-import { SupunComponent } from './supun/supun.component';
 
 @NgModule({
   imports: [
@@ -80,8 +76,6 @@ import { SupunComponent } from './supun/supun.component';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    
-
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

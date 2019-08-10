@@ -7,9 +7,6 @@ import { SpcComponent } from '../../spc/spc.component';
 import { SpclistComponent } from '../../spclist/spclist.component';
 import { MediComponent } from '../../medi/medi.component';
 import { MedilistComponent } from '../../medilist/medilist.component';
-import { HospitalDistComponent } from '../../hospital-dist/hospital-dist.component';
-import { DrugDealerComponent } from '../../drug-dealer/drug-dealer.component';
-import { DrugDealerlistComponent } from '../../drug-dealerlist/drug-dealerlist.component';
 import { TableListComponent } from '../../table-list/table-list.component';
 import { TypographyComponent } from '../../typography/typography.component';
 import { IconsComponent } from '../../icons/icons.component';
@@ -67,9 +64,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'spclist',   component: SpclistComponent },
     { path: 'medi',   component: MediComponent },
     { path: 'medilist',   component: MedilistComponent },
-    { path: 'dealer',   component: DrugDealerComponent },
-    { path: 'dealerlist',   component: DrugDealerlistComponent},
-    { path: 'hosdist' , component: HospitalDistComponent },
     { path: 'table-list',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },

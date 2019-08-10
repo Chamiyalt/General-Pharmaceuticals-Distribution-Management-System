@@ -1,6 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-
-import { Subscription } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
 
 // import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
@@ -9,7 +7,7 @@ import { MedisService } from '../medis.service';
 
 import { ActivatedRoute, ParamMap } from "@angular/router"
 import { Medi } from 'app/medi.model';
-import * as $ from "jquery";
+
 
 
 @Component({
@@ -20,17 +18,12 @@ import * as $ from "jquery";
 export class MediComponent implements OnInit {
 
   // constructor() { }
-  @ViewChild('closeBtn') closeBtn: ElementRef;
+
 
   isLoading = false;
   medi: Medi;
   private mode = 'create';
   private mediId: string;
-
-
-  medis: Medi[] = [];
-  private medisSub: Subscription;
-  // isLoading = false;
 
 
   constructor(public medisService: MedisService, public route: ActivatedRoute) {}
@@ -53,23 +46,10 @@ export class MediComponent implements OnInit {
       }
     });
 
-
-    this.isLoading = true;
-    this.medisService.getMedis();
-    this.medisSub = this.medisService.getMediUpdateListener()
-      .subscribe((medis: Medi[]) => {
-        this.isLoading = false;
-        this.medis = medis;
-      });
-
-
-
-
   }
 
 
   onSaveMedi(form: NgForm) {
-    this.closeModal();
     if (form.invalid) {
       return;
     }
@@ -80,19 +60,6 @@ export class MediComponent implements OnInit {
       this.medisService.updateMedi(this.mediId,form.value.Drug,form.value.category,form.value.code);
     }
     form.resetForm();
-  }
-
-
-  onDelete(mediId: string) {
-    this.medisService.deleteMedi(mediId);
-  }
-
-  ngOnDestroy() {
-    this.medisSub.unsubscribe();
-  }
-
-  private closeModal(): void {
-    this.closeBtn.nativeElement.click();
   }
 
 }

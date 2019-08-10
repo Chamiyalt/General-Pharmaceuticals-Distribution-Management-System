@@ -57,13 +57,12 @@ export class HospitalsService {
         hospital.id = id;
         this.hospitals.push(hospital);
         this.hospitalsUpdated.next([...this.hospitals]);
-        this.router.navigate(["/user-profile"]);
+        this.router.navigate(["/"]);
       });
   }
 
   updateHospital(id: string, Hname: string,Dirname: string,address: string,city: string, content: string){
-    console.log('asdsadasdasd')
-    const hospital: Hospital = { id: id,Hname: Hname,Dirname: Dirname,address:address,city:city,content: content};
+      const hospital: Hospital = { id: id,Hname: Hname,Dirname: Dirname,address:address,city:city,content: content};
       this.http.put("http://localhost:3000/api/hospitals/" + id, hospital)
       .subscribe(response => {
         const updatedHospitals = [...this.hospitals];
@@ -73,7 +72,6 @@ export class HospitalsService {
         this.hospitalsUpdated.next([...this.hospitals]);
         this.router.navigate(["/"]);
       });
-      console.log(hospital);
   }
 
   deleteHospital(hospitalId: string) {

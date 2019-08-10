@@ -54,7 +54,6 @@ export class SpcComponent implements OnInit {
     }
     this.isLoading=true;
     if(this.mode === 'create'){
-      console.log(form.value.OutletName);
       this.spcsService.addSpc(form.value.OutletName,form.value.InChargeName,form.value.Address,form.value.RegNum,form.value.Tel,form.value.email);
     }else{
       this.spcsService.updateSpc(this.spcId,form.value.OutletName,form.value.InChargeName,form.value.Address,form.value.RegNum,form.value.Tel,form.value.email);
