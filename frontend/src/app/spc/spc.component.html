@@ -1,3 +1,9 @@
+
+<div class="animated fadeIn row md-12">
+    <div class="row" style="width:100%">
+
+
+<div class="col-md-12">
 <div class="main-content">
     <div class="container-fluid">
         <div class="row">
@@ -188,7 +194,7 @@
                   required
                   minlength="3"
                   placeholder="spc OutletName"
-                  #Hname="ngModel"
+                  #OutletName="ngModel"
                 />
                 <mat-error *ngIf="OutletName.invalid"
                   >Please enter a Outlet name.</mat-error
@@ -210,7 +216,7 @@
                   required
                   minlength="3"
                   placeholder="Incharge name"
-                  #Dirname="ngModel"
+                  #InChargeName="ngModel"
                 />
                 <mat-error *ngIf="InChargeName.invalid"
                   >Please enter Incharge name
@@ -231,7 +237,7 @@
                   required
                   minlength="3"
                   placeholder="spc Address"
-                  #address="ngModel"
+                  #Address="ngModel"
                 />
                 <mat-error *ngIf="Address.invalid"
                   >Please enter a Spc Address.</mat-error
@@ -252,7 +258,7 @@
                   required
                   minlength="3"
                   placeholder="spc RegNum"
-                  #city="ngModel"
+                  #RegNum="ngModel"
                 />
                 <mat-error *ngIf="RegNum.invalid">Please enter a Reg number.</mat-error>
               </mat-form-field>
@@ -271,7 +277,7 @@
                   required
                   minlength="3"
                   placeholder="spc email"
-                  #content="ngModel"
+                  #email="ngModel"
                 />
                 <mat-error *ngIf="email.invalid"
                   >Please enter a City.</mat-error
@@ -292,7 +298,7 @@
                     required
                     minlength="3"
                     placeholder="spc Tel"
-                    #address="ngModel"
+                    #Tel="ngModel"
                   />
                   <mat-error *ngIf="Tel.invalid"
                     >Please enter a Spc Address.</mat-error
@@ -306,7 +312,7 @@
           <div class="modal-footer d-flex justify-content-center">
             <!-- <button class="btn btn-default">Login</button> -->
             <button mat-raised-button color="accent" type="submit">
-              Save Hospital
+              Save Spc
             </button>
           </div>
 
@@ -317,8 +323,199 @@
 
 
 
+  <!-- edit spc modal -->
 
-                      <form (submit)="onSaveSpc(postForm)" #postForm="ngForm" *ngIf="!isLoading">
+
+  <div
+    class="modal fade"
+    id="modalEditSpc"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="myModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Update Hospital</h4>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+            #closeEditBtn
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <form (submit)="editSpc(postForm)" #postForm="ngForm">
+          <div class="modal-body mx-3">
+            <div class="md-form mb-5">
+              <i class=" prefix grey-text"></i>
+
+              <mat-form-field>
+                <input
+                  matInput
+                  type="text"
+                  name="OutletName"
+                  [ngModel]="spc?.OutletName"
+                  required
+                  minlength="3"
+                  placeholder="Outlet name"
+                  #OutletName="ngModel"
+                />
+                <mat-error *ngIf="OutletName.invalid"
+                  >Please enter a Outlet name.</mat-error
+                >
+              </mat-form-field>
+
+              <!-- <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label> -->
+            </div>
+
+            <div class="md-form mb-5">
+              <i class=" prefix grey-text"></i>
+              <!-- <input type="email" id="defaultForm-email" class="form-control validate"> -->
+              <mat-form-field>
+                <input
+                  matInput
+                  type="text"
+                  name="InChargeName"
+                  [ngModel]="spc?.InChargeName"
+                  required
+                  minlength="3"
+                  placeholder="Incharge name"
+                  #InChargeName="ngModel"
+                />
+                <mat-error *ngIf="InChargeName.invalid"
+                  >Please enter Incharge name
+                </mat-error>
+              </mat-form-field>
+
+              <!-- <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label> -->
+            </div>
+
+            <div class="md-form mb-4">
+              <i class="prefix grey-text"></i>
+              <mat-form-field>
+                <input
+                  matInput
+                  type="text"
+                  name="Address"
+                  [ngModel]="spc?.Address"
+                  required
+                  minlength="3"
+                  placeholder="Spc address"
+                  #Address="ngModel"
+                />
+                <mat-error *ngIf="Address.invalid"
+                  >Please enter a Hospital Address.</mat-error
+                >
+              </mat-form-field>
+              <!-- <input type="password" id="defaultForm-pass" class="form-control validate"> -->
+              <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label> -->
+            </div>
+
+            <div class="md-form mb-4">
+              <i class="prefix grey-text"></i>
+              <mat-form-field>
+                <input
+                  matInput
+                  type="text"
+                  name="RegNum"
+                  [ngModel]="spc?.RegNum"
+                  required
+                  minlength="3"
+                  placeholder="Spc RegNum"
+                  #RegNum="ngModel"
+                />
+                <mat-error *ngIf="RegNum.invalid">Please enter a City.</mat-error>
+              </mat-form-field>
+              <!-- <input type="password" id="defaultForm-pass" class="form-control validate"> -->
+              <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label> -->
+            </div>
+
+            <div class="md-form mb-4">
+              <i class="prefix grey-text"></i>
+              <mat-form-field>
+                <input
+                  matInput
+                  type="text"
+                  name="email"
+                  [ngModel]="spc?.email"
+                  required
+                  minlength="3"
+                  placeholder="spc Tel"
+                  #email="ngModel"
+                />
+                <mat-error *ngIf="email.invalid"
+                  >Please enter a email.</mat-error
+                >
+              </mat-form-field>
+              <!-- <input type="password" id="defaultForm-pass" class="form-control validate"> -->
+              <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label> -->
+            </div>
+            <div class="md-form mb-4">
+                <i class="prefix grey-text"></i>
+                <mat-form-field>
+                  <input
+                    matInput
+                    type="text"
+                    name="Tel"
+                    [ngModel]="spc?.Tel"
+                    required
+                    minlength="3"
+                    placeholder="spc Tel"
+                    #Tel="ngModel"
+                  />
+                  <mat-error *ngIf="email.invalid"
+                    >Please enter a email.</mat-error
+                  >
+                </mat-form-field>
+                <!-- <input type="password" id="defaultForm-pass" class="form-control validate"> -->
+                <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label> -->
+              </div>
+          </div>
+          <div class="modal-footer d-flex justify-content-center">
+            <!-- <button class="btn btn-default">Login</button> -->
+            <button mat-raised-button color="accent" type="submit">
+              Update Spc
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="text-center">
+    <button
+      type="button"
+      class="justify-content-center"
+      class="btn btn-info"
+      data-toggle="modal"
+      data-target="#modalLoginForm"
+    >
+      Add Hospital
+    </button> -->
+
+    <!-- <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Launch
+      Modal Login Form</a> -->
+  <!-- </div> -->
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<!-- clear -->
+
+                      <!-- <form (submit)="onSaveSpc(postForm)" #postForm="ngForm" *ngIf="!isLoading">
                         <mat-form-field>
                           <input
                             matInput
@@ -405,11 +602,15 @@
                       </form>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
+
+
+<!--
 
         </div>
     </div>
-  </div>
+  </div> -->
 
 
 
