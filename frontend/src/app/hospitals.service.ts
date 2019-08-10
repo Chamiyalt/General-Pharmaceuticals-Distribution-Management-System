@@ -57,7 +57,7 @@ export class HospitalsService {
         hospital.id = id;
         this.hospitals.push(hospital);
         this.hospitalsUpdated.next([...this.hospitals]);
-        this.router.navigate(["/"]);
+        this.router.navigate(["/user-profile"]);
       });
   }
 
