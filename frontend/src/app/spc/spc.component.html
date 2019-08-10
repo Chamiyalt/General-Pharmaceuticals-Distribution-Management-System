@@ -4,13 +4,319 @@
             <div class="col-md-10">
                 <div class="card">
                     <div class="card-header card-header-primary">
-                        <h4 class="card-title">Spc Details</h4>
-                        <!-- <p class="card-category">Complete Hospital Details</p> -->
+                        <h4 class="card-title">Divisional Stores Details</h4>
+                        <p class="card-category">Recorded Details</p>
+
                     </div>
                     <div class="card-body">
 
+                        <table class="table table-responsive-sm">
+                            <thead>
+                              <tr>
+                                <th class="column">Outlet Name</th>
+                                <th class="column">Incharge Name</th>
+                                <th class="column">Address</th>
+                                <th class="column">Regester Number</th>
+                                <th class="column">Email</th>
+                                <th class="column">Telephone number</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let spc of spcs">
+                                <td class="column">
+                                  <!-- <p>
+                                    {{ hospital.Hname }}
+                                  </p> -->
+                                  <input
+                                    type="text"
+                                    [size]="spc.OutletName.length"
+                                    [(ngModel)]="spc.OutletName"
+                                    style="border: none;"
+                                  />
+                                </td>
+                                <td class="column">
+                                  <!-- <p>
+                                    {{ hospital.Dirname }}
+                                  </p> -->
+                                  <input
+                                    type="text"
+                                    [size]="spc.InChargeName.length"
+                                    [(ngModel)]="spc.InChargeName"
+                                    style="border: none;"
+                                  />
+                                </td>
+                                <td class="column">
+                                  <!-- <p>
+                                    {{ hospital.address }}
+                                  </p> -->
+                                  <input
+                                    type="text"
+                                    [size]="spc.Address.length"
+                                    [(ngModel)]="spc.Address"
+                                    style="border: none;"
+                                  />
+                                </td>
+                                <td class="column">
+                                  <!-- <p>
+                                    {{ hospital.city }}
+                                  </p> -->
+                                  <input
+                                    type="text"
+                                    [size]="spc.RegNum.length"
+                                    [(ngModel)]="spc.RegNum"
+                                    style="border: none;"
+                                  />
+                                </td>
+                                <td class="column">
+                                  <!-- <p>
+                                    {{ hospital.content }}
+                                  </p> -->
+                                  <input
+                                    type="text"
+                                    [size]="spc.email.length"
+                                    [(ngModel)]="spc.email"
+                                    style="border: none;"
+                                  />
+                                </td>
 
-                            <!-- <mat-spinner *ngIf="isLoading"></mat-spinner> -->
+                                <td class="column">
+                                    <!-- <p>
+                                      {{ hospital.content }}
+                                    </p> -->
+                                    <input
+                                      type="text"
+                                      [size]="spc.Tel.length"
+                                      [(ngModel)]="spc.Tel"
+                                      style="border: none;"
+                                    />
+                                  </td>
+
+                                <td class="column">
+                                  <div class="row">
+                                    <div class="col-md-6">
+
+                                      <a
+                                        mat-button
+                                        color="primary"
+                                        data-toggle="modal"
+                                        data-target="#modalEditSpc"
+                                        (click)="getSpcDetails(spc.id)"
+                                        >EDIT</a
+                                      >
+                                    </div>
+                                    <div class="col-md-6">
+                                      <button
+                                        mat-button
+                                        color="warn"
+                                        (click)="onDelete(spc.id)"
+                                      >
+                                        DELETE
+                                      </button>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+
+
+
+<!-- plus button -->
+
+      <div style="margin-left: 90%">
+          <button
+            class="btn pmd-btn-fab pmd-ripple-effect btn-success pmd-button-raised"
+            data-toggle="modal"
+            data-target="#modalLoginForm"
+          >
+            <i class="material-icons pmd-sm">add</i>
+          </button>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- add spc modal -->
+
+
+<div
+    class="modal fade"
+    id="modalLoginForm"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="myModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h4 class="modal-title w-100 font-weight-bold">Add Hospital</h4>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+            #closeBtn
+            >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+
+
+
+        <form (submit)="onSaveSpc(postForm)"
+        #postForm="ngForm"
+        *ngIf="!isLoading"
+        >
+          <div class="modal-body mx-3">
+            <div class="md-form mb-5">
+              <i class=" prefix grey-text"></i>
+
+              <mat-form-field>
+                <input
+                  matInput
+                  type="text"
+                  name="OutletName"
+                  [ngModel]="spc?.OutletName"
+                  required
+                  minlength="3"
+                  placeholder="spc OutletName"
+                  #Hname="ngModel"
+                />
+                <mat-error *ngIf="OutletName.invalid"
+                  >Please enter a Outlet name.</mat-error
+                >
+              </mat-form-field>
+
+              <!-- <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label> -->
+            </div>
+
+            <div class="md-form mb-5">
+              <i class=" prefix grey-text"></i>
+              <!-- <input type="email" id="defaultForm-email" class="form-control validate"> -->
+              <mat-form-field>
+                <input
+                  matInput
+                  type="text"
+                  name="InChargeName"
+                  [ngModel]="spc?.InChargeName"
+                  required
+                  minlength="3"
+                  placeholder="Incharge name"
+                  #Dirname="ngModel"
+                />
+                <mat-error *ngIf="InChargeName.invalid"
+                  >Please enter Incharge name
+                </mat-error>
+              </mat-form-field>
+
+              <!-- <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label> -->
+            </div>
+
+            <div class="md-form mb-4">
+              <i class="prefix grey-text"></i>
+              <mat-form-field>
+                <input
+                  matInput
+                  type="text"
+                  name="Address"
+                  [ngModel]="spc?.Address"
+                  required
+                  minlength="3"
+                  placeholder="spc Address"
+                  #address="ngModel"
+                />
+                <mat-error *ngIf="Address.invalid"
+                  >Please enter a Spc Address.</mat-error
+                >
+              </mat-form-field>
+              <!-- <input type="password" id="defaultForm-pass" class="form-control validate"> -->
+              <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label> -->
+            </div>
+
+            <div class="md-form mb-4">
+              <i class="prefix grey-text"></i>
+              <mat-form-field>
+                <input
+                  matInput
+                  type="text"
+                  name="city"
+                  [ngModel]="spc?.RegNum"
+                  required
+                  minlength="3"
+                  placeholder="spc RegNum"
+                  #city="ngModel"
+                />
+                <mat-error *ngIf="RegNum.invalid">Please enter a Reg number.</mat-error>
+              </mat-form-field>
+              <!-- <input type="password" id="defaultForm-pass" class="form-control validate"> -->
+              <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label> -->
+            </div>
+
+            <div class="md-form mb-4">
+              <i class="prefix grey-text"></i>
+              <mat-form-field>
+                <input
+                  matInput
+                  type="text"
+                  name="content"
+                  [ngModel]="spc?.email"
+                  required
+                  minlength="3"
+                  placeholder="spc email"
+                  #content="ngModel"
+                />
+                <mat-error *ngIf="email.invalid"
+                  >Please enter a City.</mat-error
+                >
+              </mat-form-field>
+              <!-- <input type="password" id="defaultForm-pass" class="form-control validate"> -->
+              <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label> -->
+            </div>
+
+            <div class="md-form mb-4">
+                <i class="prefix grey-text"></i>
+                <mat-form-field>
+                  <input
+                    matInput
+                    type="text"
+                    name="Tel"
+                    [ngModel]="spc?.Tel"
+                    required
+                    minlength="3"
+                    placeholder="spc Tel"
+                    #address="ngModel"
+                  />
+                  <mat-error *ngIf="Tel.invalid"
+                    >Please enter a Spc Address.</mat-error
+                  >
+                </mat-form-field>
+                <!-- <input type="password" id="defaultForm-pass" class="form-control validate"> -->
+                <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label> -->
+              </div>
+          </div>
+
+          <div class="modal-footer d-flex justify-content-center">
+            <!-- <button class="btn btn-default">Login</button> -->
+            <button mat-raised-button color="accent" type="submit">
+              Save Hospital
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
 
                       <form (submit)="onSaveSpc(postForm)" #postForm="ngForm" *ngIf="!isLoading">
                         <mat-form-field>
