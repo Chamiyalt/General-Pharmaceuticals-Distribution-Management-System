@@ -1,8 +1,5 @@
 //import { Component, OnInit } from '@angular/core';
 
-
-
-
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Subscription } from 'rxjs';
 
@@ -14,7 +11,7 @@ import { HospitalsService } from "../hospitals.service";
   templateUrl: './user-profile1.component.html',
   styleUrls: ['./user-profile1.component.css']
 })
-export class UserProfile1Component implements OnInit ,OnDestroy {
+export class UserProfile1Component implements OnInit  {
 
   // constructor() { }
 
