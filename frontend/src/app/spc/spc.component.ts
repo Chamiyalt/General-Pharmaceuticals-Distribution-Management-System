@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 // import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { Spc } from '../spc.model';
 import { SpcsService } from '../spcs.service';
+import { Subscription } from 'rxjs';
 
 import { ActivatedRoute, ParamMap } from "@angular/router"
 
@@ -18,12 +19,27 @@ export class SpcComponent implements OnInit {
 
   // constructor() { }
 
+  @ViewChild('closeBtn') closeBtn : ElementRef;
+  @ViewChild('closeEditBtn') closeeditBtn : ElementRef;
+
 
   isLoading = false;
-  spc: Spc;
+  spc : Spc = {
+    OutletName : "" ,
+    InChargeName : "",
+    Address : "",
+    RegNum : "",
+    email : "",
+    Tel : "",
+    id:""
+  }
+  // spc: Spc;
   private mode = 'create';
   private spcId: string;
+  currentSpc;
 
+  spcs: Spc[] = [];
+  private spcsSub: Subscription;
 
   constructor(public spcsService: SpcsService, public route: ActivatedRoute) {}
 
@@ -45,10 +61,20 @@ export class SpcComponent implements OnInit {
       }
     });
 
+
+    this.isLoading = true;
+    this.spcsService.getSpcs();
+    this.spcsSub = this.spcsService.getSpcUpdateListener()
+      .subscribe((posts: Spc[]) => {
+        this.isLoading = false;
+        this.spcs = posts;
+      });
+
   }
 
 
   onSaveSpc(form: NgForm) {
+    this.closeModal();
     if (form.invalid) {
       return;
     }
@@ -61,5 +87,43 @@ export class SpcComponent implements OnInit {
     }
     form.resetForm();
   }
+
+  onDelete(postId: string) {
+    this.spcsService.deleteSpc(postId);
+  }
+
+  ngOnDestroy() {
+    this.spcsSub.unsubscribe();
+  }
+
+  private closeModal(): void {
+    this.closeBtn.nativeElement.click();
+    // this.closeEditBtn.nativeElement.click();
+  }
+
+  getSpcDetails(spcId:string){
+    this.spcsService.getSpc(spcId).subscribe((Data)=>{
+      this.currentSpc = Data;
+      this.spc.OutletName = Data.OutletName
+      this.spc.InChargeName = Data.InChargeName
+      this.spc.Address = Data.Address
+      this.spc.email = Data.email
+      this.spc.RegNum = Data.RegNum
+      this.spc.id = Data._id
+      console.log(this.spc)
+    })
+  }
+
+  editSpc(form: NgForm){
+    this.closeModal()
+
+    this.isLoading=true;
+    this.spcsService.updateSpc(this.spc.id,form.value.OutletName,form.value.InChargeName,form.value.Address,form.value.RegNum,form.value.email,form.value.Tel);
+    form.resetForm();
+    this.isLoading = false;
+  }
+
+
+
 
 }
