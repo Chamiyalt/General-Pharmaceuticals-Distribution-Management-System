@@ -10,6 +10,7 @@ private token: string;
 private isAuthenticated = false;
   constructor(private http: HttpClient , private router: Router){}
 
+
   private authStateListner = new Subject<boolean>();
 
   getAuthStatusListner(){
