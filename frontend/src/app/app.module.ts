@@ -45,6 +45,9 @@ import { HospitalDistComponent } from './hospital-dist/hospital-dist.component';
 import { DrugDealerComponent } from './drug-dealer/drug-dealer.component';
 import { DrugDealerlistComponent } from './drug-dealerlist/drug-dealerlist.component';
 import { SupunComponent } from './supun/supun.component';
+import { LoginComponent } from './Auth/login/login.component';
+import { SignUpComponent } from './Auth/signup/signup.component';
+
 
 @NgModule({
   imports: [
@@ -80,7 +83,9 @@ import { SupunComponent } from './supun/supun.component';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    
+    LoginComponent,
+    SignUpComponent,
+
 
 
   ],

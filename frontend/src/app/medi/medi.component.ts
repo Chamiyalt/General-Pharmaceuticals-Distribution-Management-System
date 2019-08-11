@@ -3,11 +3,11 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 // import { Component, OnInit } from '@angular/core';
-import { NgForm } from "@angular/forms";
+import { NgForm } from '@angular/forms';
 
 import { MedisService } from '../medis.service';
 
-import { ActivatedRoute, ParamMap } from "@angular/router"
+import { ActivatedRoute, ParamMap } from '@angular/router'
 import { Medi } from 'app/medi.model';
 import * as $ from "jquery";
 

@@ -20,6 +20,7 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 
+
 import {
   MatButtonModule,
   MatInputModule,
@@ -32,6 +33,9 @@ import {
   MatExpansionModule,
   MatProgressSpinnerModule
 } from '@angular/material';
+
+import { LoginComponent } from 'app/Auth/login/login.component';
+import { SignUpComponent } from 'app/Auth/signup/signup.component';
 
 
 
@@ -72,6 +76,8 @@ import {
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    
+
   ]
 })
 

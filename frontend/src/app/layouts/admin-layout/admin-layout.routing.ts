@@ -17,6 +17,7 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 
+
 export const AdminLayoutRoutes: Routes = [
     // {
     //   path: '',
@@ -77,5 +78,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'edithos/:hospitalId', component: UserProfileComponent },
-    { path: 'editspc/:spcId',   component: SpcComponent }
+    { path: 'editspc/:spcId',   component: SpcComponent },
+
 ];
