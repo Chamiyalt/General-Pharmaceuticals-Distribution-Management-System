@@ -1,103 +1,7 @@
-<!-- <div class="main-content">
-  <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-6">
-              <div class="card">
-                  <div class="card-header card-header-danger">
-                      <h4 class="card-title">Hospitals Details</h4>
-
-                  </div>
-                  <div class="card-body">
-
-
-
-
-                    <form (submit)="onSaveHospital(postForm)" #postForm="ngForm" *ngIf="!isLoading">
-                      <mat-form-field>
-                        <input
-                          matInput
-                          type="text"
-                          name="Hname"
-                          [ngModel] = "hospital?.Hname"
-                          required
-                          minlength="3"
-                          placeholder="Hospital name"
-                          #Hname="ngModel">
-                        <mat-error *ngIf="Hname.invalid">Please enter a hospital name.</mat-error>
-                      </mat-form-field>
-
-                      <mat-form-field>
-                          <input
-                            matInput
-                            type="text"
-                            name="Dirname"
-                            [ngModel] = "hospital?.Dirname"
-                            required
-                            minlength="3"
-                            placeholder="Director name"
-                            #Dirname="ngModel">
-                          <mat-error *ngIf="Dirname.invalid">Please enter a Director name.</mat-error>
-                        </mat-form-field>
-
-                        <mat-form-field>
-                            <input
-                              matInput
-                              type="text"
-                              name="address"
-                              [ngModel] = "hospital?.address"
-                              required
-                              minlength="3"
-                              placeholder="address"
-                              #address="ngModel">
-                            <mat-error *ngIf="address.invalid">Please enter address </mat-error>
-                          </mat-form-field>
-
-                          <mat-form-field>
-                              <input
-                                matInput
-                                type="text"
-                                name="city"
-                                [ngModel] = "hospital?.city"
-                                required
-                                minlength="3"
-                                placeholder="City"
-                                #city="ngModel">
-                              <mat-error *ngIf="city.invalid">Please enter city.</mat-error>
-                            </mat-form-field>
-
-
-
-                      <mat-form-field>
-                        <input
-                          matInput
-                          rows="4"
-                          name="content"
-                          [ngModel] = "hospital?.content"
-                          required
-                          placeholder="email"
-                          #content="ngModel">
-                        <mat-error *ngIf="content.invalid">Please enter email address</mat-error>
-                      </mat-form-field>
-                      <button
-                        mat-raised-button
-                        color="accent"
-                        type="submit">Save Record</button>
-                    </form>
-                  </div>
-              </div>
-          </div>
-
-      </div>
-  </div>
-</div>
-
- -->
+<!-- table create -->
 
  <div class="animated fadeIn row md-12">
     <div class="row" style="width:100%">
-      <!-- this include previous table -->
-
-      <!-- hospital table -->
       <div class="col-md-12">
         <div class="main-content">
           <div class="container-fluid">
@@ -111,12 +15,12 @@
                 <table class="table table-responsive-sm">
                   <thead>
                     <tr>
-                      <th class="column">outlet Name</th>
+                      <th class="column">Outlet Name</th>
                       <th class="column">Incharge Name</th>
                       <th class="column">Address</th>
-                      <th class="column">Register number</th>
+                      <th class="column">Reg number</th>
                       <th class="column">email</th>
-                      <th class="column">telephone number</th>
+                      <th class="column">Tel number</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -149,9 +53,7 @@
                         />
                       </td>
                       <td class="column">
-                        <!-- <p>
-                          {{ hospital.city }}
-                        </p> -->
+
                         <input
                           type="text"
                           [size]="spc.RegNum.length"
@@ -160,9 +62,7 @@
                         />
                       </td>
                       <td class="column">
-                        <!-- <p>
-                          {{ hospital.content }}
-                        </p> -->
+
                         <input
                           type="text"
                           [size]="spc.email.length"
@@ -171,9 +71,7 @@
                         />
                       </td>
                       <td class="column">
-                          <!-- <p>
-                            {{ hospital.content }}
-                          </p> -->
+
                           <input
                             type="text"
                             [size]="spc.Tel.length"
@@ -212,7 +110,11 @@
               </div>
             </div>
 
-  <!-- plus button -->
+
+
+
+
+<!-- plus button -->
             <div style="margin-left: 90%">
               <button
                 class="btn pmd-btn-fab pmd-ripple-effect btn-success pmd-button-raised"
@@ -229,7 +131,12 @@
       </div>
     </div>
 
-    <!-- add hospital modal -->
+
+
+
+
+
+<!-- add modal create -->
 
     <div
       class="modal fade"
@@ -242,7 +149,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header text-center">
-            <h4 class="modal-title w-100 font-weight-bold">Add spc</h4>
+            <h4 class="modal-title w-100 font-weight-bold">Add Devisional stores</h4>
             <button
               type="button"
               class="close"
@@ -277,16 +184,16 @@
                     #OutletName="ngModel"
                   />
                   <mat-error *ngIf="OutletName.invalid"
-                    >Please enter a Hospital name.</mat-error
+                    >Please enter a Outlet Name</mat-error
                   >
                 </mat-form-field>
 
-                <!-- <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label> -->
+
               </div>
 
               <div class="md-form mb-5">
                 <i class=" prefix grey-text"></i>
-                <!-- <input type="email" id="defaultForm-email" class="form-control validate"> -->
+
                 <mat-form-field>
                   <input
                     matInput
@@ -299,11 +206,11 @@
                     #InChargeName="ngModel"
                   />
                   <mat-error *ngIf="InChargeName.invalid"
-                    >Please enter director name
+                    >Please enter Incharge Name
                   </mat-error>
                 </mat-form-field>
 
-                <!-- <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label> -->
+
               </div>
 
               <div class="md-form mb-4">
@@ -316,15 +223,14 @@
                     [ngModel]="spc?.Address"
                     required
                     minlength="3"
-                    placeholder="Hospital address"
+                    placeholder="address"
                     #Address="ngModel"
                   />
                   <mat-error *ngIf="Address.invalid"
-                    >Please enter a Hospital Address.</mat-error
+                    >Please enter a  Address.</mat-error
                   >
                 </mat-form-field>
-                <!-- <input type="password" id="defaultForm-pass" class="form-control validate"> -->
-                <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label> -->
+
               </div>
 
               <div class="md-form mb-4">
@@ -337,13 +243,12 @@
                     [ngModel]="spc?.RegNum"
                     required
                     minlength="3"
-                    placeholder="Hospital City"
+                    placeholder="Reg number"
                     #RegNum="ngModel"
                   />
-                  <mat-error *ngIf="RegNum.invalid">Please enter a City.</mat-error>
+                  <mat-error *ngIf="RegNum.invalid">Please enter a Registration number.</mat-error>
                 </mat-form-field>
-                <!-- <input type="password" id="defaultForm-pass" class="form-control validate"> -->
-                <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label> -->
+
               </div>
 
               <div class="md-form mb-4">
@@ -356,15 +261,14 @@
                     [ngModel]="spc?.email"
                     required
                     minlength="3"
-                    placeholder="Hospital content"
+                    placeholder="email Address"
                     #email="ngModel"
                   />
                   <mat-error *ngIf="email.invalid"
-                    >Please enter a City.</mat-error
+                    >Please enter a Email.</mat-error
                   >
                 </mat-form-field>
-                <!-- <input type="password" id="defaultForm-pass" class="form-control validate"> -->
-                <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label> -->
+
               </div>
 
               <div class="md-form mb-4">
@@ -377,23 +281,22 @@
                       [ngModel]="spc?.Tel"
                       required
                       minlength="3"
-                      placeholder="Hospital content"
+                      placeholder=" telephone number"
                       #Tel="ngModel"
                     />
                     <mat-error *ngIf="Tel.invalid"
-                      >Please enter a City.</mat-error
+                      >Please enter a Telephone number.</mat-error
                     >
                   </mat-form-field>
-                  <!-- <input type="password" id="defaultForm-pass" class="form-control validate"> -->
-                  <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label> -->
+
                 </div>
 
             </div>
 
             <div class="modal-footer d-flex justify-content-center">
-              <!-- <button class="btn btn-default">Login</button> -->
+
               <button mat-raised-button color="accent" type="submit">
-                Save Spc
+                Save Devisional store.
               </button>
             </div>
 
@@ -402,9 +305,10 @@
       </div>
     </div>
 
-    <!-- edit fush -->
 
-    <!-- edit Hospital modal -->
+
+
+<!-- edit modal create -->
 
     <div
       class="modal fade"
@@ -417,7 +321,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header text-center">
-            <h4 class="modal-title w-100 font-weight-bold">Update Spc</h4>
+            <h4 class="modal-title w-100 font-weight-bold">Update devisional stores</h4>
             <button
               type="button"
               class="close"
@@ -442,20 +346,20 @@
                     [ngModel]="spc?.OutletName"
                     required
                     minlength="3"
-                    placeholder="Hospital name"
+                    placeholder="outlet  name"
                     #OutletName="ngModel"
                   />
                   <mat-error *ngIf="OutletName.invalid"
-                    >Please enter a Hospital name.</mat-error
+                    >Please enter a Outlet name.</mat-error
                   >
                 </mat-form-field>
 
-                <!-- <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label> -->
+
               </div>
 
               <div class="md-form mb-5">
                 <i class=" prefix grey-text"></i>
-                <!-- <input type="email" id="defaultForm-email" class="form-control validate"> -->
+
                 <mat-form-field>
                   <input
                     matInput
@@ -464,15 +368,15 @@
                     [ngModel]="spc?.InChargeName"
                     required
                     minlength="3"
-                    placeholder="Director name"
+                    placeholder="Incharge name"
                     #InChargeName="ngModel"
                   />
                   <mat-error *ngIf="InChargeName.invalid"
-                    >Please enter director name
+                    >Please enter Incharge name
                   </mat-error>
                 </mat-form-field>
 
-                <!-- <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label> -->
+
               </div>
 
               <div class="md-form mb-4">
@@ -485,15 +389,14 @@
                     [ngModel]="spc?.Address"
                     required
                     minlength="3"
-                    placeholder="Hospital address"
+                    placeholder="Address"
                     #Address="ngModel"
                   />
                   <mat-error *ngIf="Address.invalid"
-                    >Please enter a Hospital Address.</mat-error
+                    >Please enter a  Address.</mat-error
                   >
                 </mat-form-field>
-                <!-- <input type="password" id="defaultForm-pass" class="form-control validate"> -->
-                <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label> -->
+
               </div>
 
               <div class="md-form mb-4">
@@ -506,13 +409,12 @@
                     [ngModel]="spc?.RegNum"
                     required
                     minlength="3"
-                    placeholder="Hospital City"
-                    #spc="ngModel"
+                    placeholder="Reg number"
+                    #RegNum="ngModel"
                   />
-                  <mat-error *ngIf="RegNum.invalid">Please enter a City.</mat-error>
+                  <mat-error *ngIf="RegNum.invalid">Please enter a Reg number.</mat-error>
                 </mat-form-field>
-                <!-- <input type="password" id="defaultForm-pass" class="form-control validate"> -->
-                <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label> -->
+
               </div>
 
               <div class="md-form mb-4">
@@ -525,15 +427,14 @@
                     [ngModel]="spc?.email"
                     required
                     minlength="3"
-                    placeholder="Hospital content"
+                    placeholder="email"
                     #email="ngModel"
                   />
                   <mat-error *ngIf="email.invalid"
-                    >Please enter a City.</mat-error
+                    >Please enter a email.</mat-error
                   >
                 </mat-form-field>
-                <!-- <input type="password" id="defaultForm-pass" class="form-control validate"> -->
-                <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label> -->
+
               </div>
 
 
@@ -547,22 +448,21 @@
                       [ngModel]="spc?.Tel"
                       required
                       minlength="3"
-                      placeholder="Hospital content"
+                      placeholder="Telephone number"
                       #Tel="ngModel"
                     />
                     <mat-error *ngIf="Tel.invalid"
-                      >Please enter a City.</mat-error
+                      >Please enter a Telephone number.</mat-error
                     >
                   </mat-form-field>
-                  <!-- <input type="password" id="defaultForm-pass" class="form-control validate"> -->
-                  <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label> -->
+
                 </div>
 
             </div>
             <div class="modal-footer d-flex justify-content-center">
-              <!-- <button class="btn btn-default">Login</button> -->
+
               <button mat-raised-button color="accent" type="submit">
-                Update Hospital
+                Update Devisional stores.
               </button>
             </div>
           </form>
@@ -570,18 +470,5 @@
       </div>
     </div>
 
-    <!-- <div class="text-center">
-      <button
-        type="button"
-        class="justify-content-center"
-        class="btn btn-info"
-        data-toggle="modal"
-        data-target="#modalLoginForm"
-      >
-        Add Hospital
-      </button> -->
 
-      <!-- <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Launch
-        Modal Login Form</a> -->
-    <!-- </div> -->
   </div>

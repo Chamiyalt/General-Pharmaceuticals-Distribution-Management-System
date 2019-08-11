@@ -25,11 +25,11 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import { UserProfile1Component } from './user-profile1/user-profile1.component';
+
 import { SpcComponent } from './spc/spc.component';
-import { SpclistComponent } from './spclist/spclist.component';
+
 import { MediComponent } from './medi/medi.component';
-import { MedilistComponent } from './medilist/medilist.component';
+
 import { TableListComponent } from './table-list/table-list.component';
 import { TypographyComponent } from './typography/typography.component';
 import { IconsComponent } from './icons/icons.component';
@@ -42,9 +42,8 @@ import {
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HospitalDistComponent } from './hospital-dist/hospital-dist.component';
-import { DrugDealerComponent } from './drug-dealer/drug-dealer.component';
-import { DrugDealerlistComponent } from './drug-dealerlist/drug-dealerlist.component';
-import { SupunComponent } from './supun/supun.component';
+
+
 
 @NgModule({
   imports: [
@@ -80,7 +79,7 @@ import { SupunComponent } from './supun/supun.component';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-    
+
 
 
   ],

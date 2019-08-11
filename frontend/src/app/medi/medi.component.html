@@ -55,8 +55,9 @@
                           <a
                             mat-button
                             color="primary"
-                            [routerLink]="['/editmedi', medi.id]"
-                            routerLinkActive="router-link-active"
+                            data-toggle="modal"
+                            data-target="#modalEditMedicine"
+                            (click)="getMediDetails(medi.id)"
                             >EDIT</a
                           >
                         </div>
@@ -76,6 +77,19 @@
               </table>
             </div>
           </div>
+
+<!-- plus button -->
+<div style="margin-left: 90%">
+    <button
+      class="btn pmd-btn-fab pmd-ripple-effect btn-success pmd-button-raised"
+      data-toggle="modal"
+      data-target="#modalLoginForm"
+    >
+      <i class="material-icons pmd-sm">add</i>
+    </button>
+  </div>
+
+
         </div>
       </div>
     </div>
@@ -94,7 +108,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header text-center">
-          <h4 class="modal-title w-100 font-weight-bold">Add2 Medicine</h4>
+          <h4 class="modal-title w-100 font-weight-bold">Add Medicine</h4>
           <button
             type="button"
             class="close"
@@ -202,4 +216,118 @@
     <!-- <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Launch
     Modal Login Form</a> -->
   </div>
+
+
+
+  <!-- edit modal -->
+
+  <div
+      class="modal fade"
+      id="modalEditMedicine"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="myModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header text-center">
+            <h4 class="modal-title w-100 font-weight-bold">Update Medicine</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+              #closeEditBtn
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <form (submit)="editMedicine(postForm)" #postForm="ngForm">
+            <div class="modal-body mx-3">
+              <div class="md-form mb-5">
+                <i class=" prefix grey-text"></i>
+
+                <mat-form-field>
+                  <input
+                    matInput
+                    type="text"
+                    name="Drug"
+                    [ngModel]="medi?.Drug"
+                    required
+                    minlength="3"
+                    placeholder="Drug name"
+                    #Drug="ngModel"
+                  />
+                  <mat-error *ngIf="Drug.invalid"
+                    >Please enter a Outlet name.</mat-error
+                  >
+                </mat-form-field>
+
+
+              </div>
+
+              <div class="md-form mb-5">
+                <i class=" prefix grey-text"></i>
+
+                <mat-form-field>
+                  <input
+                    matInput
+                    type="text"
+                    name="code"
+                    [ngModel]="medi?.code"
+                    required
+                    minlength="3"
+                    placeholder="code name"
+                    #code="ngModel"
+                  />
+                  <mat-error *ngIf="code.invalid"
+                    >Please enter Incharge name
+                  </mat-error>
+                </mat-form-field>
+
+
+              </div>
+
+              <div class="md-form mb-4">
+                <i class="prefix grey-text"></i>
+                <mat-form-field>
+                  <input
+                    matInput
+                    type="text"
+                    name="category"
+                    [ngModel]="medi?.category"
+                    required
+                    minlength="3"
+                    placeholder="category"
+                    #category="ngModel"
+                  />
+                  <mat-error *ngIf="category.invalid"
+                    >Please enter a  Address.</mat-error
+                  >
+                </mat-form-field>
+
+              </div>
+
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+
+              <button mat-raised-button color="accent" type="submit">
+                Update Medicine.
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+
 </div>
+
+
+
+
+

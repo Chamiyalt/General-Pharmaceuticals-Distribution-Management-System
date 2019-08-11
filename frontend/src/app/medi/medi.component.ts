@@ -21,12 +21,19 @@ export class MediComponent implements OnInit {
 
   // constructor() { }
   @ViewChild('closeBtn') closeBtn: ElementRef;
+  @ViewChild('closeEditBtn') closeEditBtn: ElementRef;
+
 
   isLoading = false;
-  medi: Medi;
+  medi: Medi = {
+    Drug:"",
+    category:"",
+    code: "",
+    id:""
+  }
   private mode = 'create';
   private mediId: string;
-
+  currentMedicine;
 
   medis: Medi[] = [];
   private medisSub: Subscription;
@@ -93,6 +100,28 @@ export class MediComponent implements OnInit {
 
   private closeModal(): void {
     this.closeBtn.nativeElement.click();
+    this.closeEditBtn.nativeElement.click();
   }
+
+  getMediDetails(mediId:string){
+    this.medisService.getMedi(mediId).subscribe((Data)=>{
+      this.currentMedicine = Data;
+      this.medi.Drug = Data.Drug
+      this.medi.category = Data.category
+      this.medi.code = Data.code
+      this.medi.id = Data._id
+      console.log(this.medi)
+    })
+  }
+
+  editMedicine(form: NgForm){
+    this.closeModal()
+
+    this.isLoading=true;
+    this.medisService.updateMedi(this.medi.id,form.value.Drug,form.value.category,form.value.code);
+    form.resetForm();
+    this.isLoading = false;
+  }
+
 
 }
