@@ -18,6 +18,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { MainDrugTableComponent } from 'app/main-drug-table/main-drug-table.component';
 import { MainDrugAddComponent } from 'app/main-drug-add/main-drug-add.component';
 
+
 export const AdminLayoutRoutes: Routes = [
     // {
     //   path: '',
@@ -79,5 +80,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'edithos/:hospitalId', component: UserProfileComponent },
-    { path: 'editspc/:spcId',   component: SpcComponent }
+    { path: 'editspc/:spcId',   component: SpcComponent },
+
 ];

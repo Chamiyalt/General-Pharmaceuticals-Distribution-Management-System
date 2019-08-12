@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-import { ChartsModule } from 'ng2-charts/ng2-charts';
+
 
 
 
@@ -48,9 +48,17 @@ import {
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HospitalDistComponent } from './hospital-dist/hospital-dist.component';
+
 import { MainDrugTableComponent } from './main-drug-table/main-drug-table.component';
 import { MainDrugAddComponent } from './main-drug-add/main-drug-add.component';
 import { from } from 'rxjs';
+
+=======
+import { DrugDealerComponent } from './drug-dealer/drug-dealer.component';
+import { DrugDealerlistComponent } from './drug-dealerlist/drug-dealerlist.component';
+import { SupunComponent } from './supun/supun.component';
+import { LoginComponent } from './Auth/login/login.component';
+import { SignUpComponent } from './Auth/signup/signup.component';
 
 
 
@@ -96,6 +104,11 @@ import { from } from 'rxjs';
     AppComponent,
     AdminLayoutComponent,
 
+
+
+=======
+    LoginComponent,
+    SignUpComponent,
 
 
 

@@ -60,16 +60,6 @@ const mongoose = require("mongoose");
 const config = require('./backend/config/database');
 
 
-
-// const connection = mongoose.connect(config.database);
-// if(connection){
-//     console.log('database success');
-// }
-// else{
-//     console.log('database fail');
-// }
-
-
 const normalizePort = val => {
   var port = parseInt(val, 10);
 

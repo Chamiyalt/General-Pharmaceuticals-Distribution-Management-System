@@ -19,8 +19,10 @@ import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 
+
 import { MainDrugTableComponent } from 'app/main-drug-table/main-drug-table.component';
 import { MainDrugAddComponent } from 'app/main-drug-add/main-drug-add.component';
+
 
 import {
   MatButtonModule,
@@ -37,6 +39,9 @@ import {
   MatNativeDateModule,
 
 } from '@angular/material';
+
+import { LoginComponent } from 'app/Auth/login/login.component';
+import { SignUpComponent } from 'app/Auth/signup/signup.component';
 
 
 
@@ -82,6 +87,8 @@ import {
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    
+
   ]
 })
 
