@@ -15,6 +15,8 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { MainDrugTableComponent } from 'app/main-drug-table/main-drug-table.component';
+import { MainDrugAddComponent } from 'app/main-drug-add/main-drug-add.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -61,8 +63,9 @@ export const AdminLayoutRoutes: Routes = [
     // }
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
+    { path: 'main-drug-table',   component: MainDrugTableComponent },
+    { path: 'main-drug-add',   component: MainDrugAddComponent },
 
-    
     { path: 'spc',   component: SpcComponent },
 
     { path: 'medi',   component: MediComponent },

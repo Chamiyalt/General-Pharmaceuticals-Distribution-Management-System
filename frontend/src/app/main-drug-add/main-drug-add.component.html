@@ -1,0 +1,200 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-6">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title">Drug Add</h4>
+
+                  </div>
+                  <div class="card-body">
+
+                    <form (submit)="onSaveDrug(postForm)" #postForm="ngForm" *ngIf="!isLoading">
+
+                        <mat-form-field>
+                          <mat-label>Drug Name</mat-label>
+                            <mat-select [(value)]="id" >
+
+                              <mat-option *ngFor="let medi of medis" [value]="medi.Drug" >
+                                {{medi.Drug}}
+                              </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+
+
+
+<!--
+                      <mat-form-field>
+                        <input
+                          matInput
+                          type="text"
+                          name="DrugName"
+
+                          [ngModel] = "drug?.DrugName"
+                          required
+                          minlength="3"
+                          placeholder="Drug name"
+                          #DrugName="ngModel">
+
+
+                        <mat-error *ngIf="DrugName.invalid">Please enter a hospital name.</mat-error>
+                      </mat-form-field> -->
+
+                      <mat-form-field>
+                          <input
+                            matInput
+                            type="text"
+                            name="Batch"
+                            [ngModel] = "drug?.Batch"
+                            required
+                            minlength="3"
+                            placeholder="Batch"
+                            #Batch="ngModel">
+                          <mat-error *ngIf="Batch.invalid">Please enter a Director name.</mat-error>
+                        </mat-form-field>
+
+
+                        <mat-form-field>
+                            <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker startView="year" ></mat-datepicker>
+                        </mat-form-field>
+
+
+
+
+                        <mat-form-field>
+                            <input
+                              matInput
+                              type="date"
+                              name="ExpiryDate"
+                              [ngModel] = "drug?.ExpiryDate"
+                              required
+                              minlength="3"
+                              placeholder="Expiry Date"
+                              #ExpiryDate="ngModel">
+                            <mat-error *ngIf="ExpiryDate.invalid">Please enter address </mat-error>
+                          </mat-form-field>
+
+                          <mat-form-field>
+                              <input
+                                matInput
+                                type="text"
+                                name="Quentity"
+                                [ngModel] = "drug?.Quentity"
+                                required
+                                minlength="3"
+                                placeholder="Quentity"
+                                #Quentity="ngModel">
+                              <mat-error *ngIf="Quentity.invalid">Please enter city.</mat-error>
+                            </mat-form-field>
+                      <button
+                        mat-raised-button
+                        color="accent"
+                        type="submit">Save Record</button>
+                    </form>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </div>
+</div>
+
+
+
+
+
+  <!-- <div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Drug Add</h4>
+
+                    </div>
+                    <div class="card-body">
+
+                      <form [formGroup]="form" (submit)="onSaveDrug()" *ngIf="!isLoading">
+
+                          <mat-form-field>
+                            <mat-label>Drug Name new</mat-label>
+                              <mat-select >
+
+                                <mat-option *ngFor="let medi of medis" [value]="medi.id" >
+                                  {{medi.Drug}}
+                                </mat-option>
+                              </mat-select>
+                          </mat-form-field>
+
+
+
+
+
+                        <mat-form-field>
+                          <input
+                            matInput
+                            type="text"
+                            formControlName="DrugName"
+                            placeholder="Drug name">
+
+
+
+                          <mat-error *ngIf="form.get('DrugName').invalid">Please enter a hospital name.</mat-error>
+                        </mat-form-field>
+
+
+                        <mat-form-field>
+                            <input
+                              matInput
+                              type="text"
+
+                              formControlName="Batch"
+                              placeholder="Batch">
+                            <mat-error *ngIf="form.get('Batch').invalid">Please enter a Director name.</mat-error>
+                          </mat-form-field>
+
+
+                          <mat-form-field>
+                              <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+                              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                              <mat-datepicker #picker startView="year" ></mat-datepicker>
+                            </mat-form-field>
+
+
+
+                          <mat-form-field>
+                              <input
+                                matInput
+                                type="text"
+
+                                formControlName="ExpiryDate"
+                                placeholder="Expiry Date">
+                              <mat-error *ngIf="form.get('ExpiryDate').invalid">Please enter address </mat-error>
+                            </mat-form-field>
+
+                            <mat-form-field>
+                                <input
+                                  matInput
+                                  type="text"
+
+                                  placeholder="Quentity">
+                                <mat-error *ngIf="form.get('Quentity').invalid">Please enter city.</mat-error>
+                              </mat-form-field>
+                        <button
+                          mat-raised-button
+                          color="accent"
+                          type="submit">Save Record</button>
+                      </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+  </div> -->
+
+
+

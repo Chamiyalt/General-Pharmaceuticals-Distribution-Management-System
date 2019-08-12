@@ -61,13 +61,13 @@ const config = require('./backend/config/database');
 
 
 
-const connection = mongoose.connect(config.database);
-if(connection){
-    console.log('database success');
-}
-else{
-    console.log('database fail');
-}
+// const connection = mongoose.connect(config.database);
+// if(connection){
+//     console.log('database success');
+// }
+// else{
+//     console.log('database fail');
+// }
 
 
 const normalizePort = val => {

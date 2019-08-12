@@ -14,8 +14,9 @@ export const ROUTES: RouteInfo[] = [
     { path: '/spc', title: 'Spc',  icon:'person', class: '' },
 
     { path: '/medi', title: 'Add Medicine',  icon:'person', class: '' },
+    { path: '/main-drug-add', title: 'Drug Adding',  icon:'library_books', class: '' },
+    { path: '/main-drug-table', title: 'Drug Store',  icon:'library_books', class: '' },
 
-    
     { path: '/hosdist', title: 'Hospital Distribution',  icon:'content_paste', class: '' },
     { path: '/table-list', title: 'Table List',  icon:'content_paste', class: '' },
     { path: '/typography', title: 'Typography',  icon:'library_books', class: '' },

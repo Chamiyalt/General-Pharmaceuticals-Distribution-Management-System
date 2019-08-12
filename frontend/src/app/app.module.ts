@@ -1,15 +1,19 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+
 
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
 
 import { AppComponent } from './app.component';
+
+import { MatDatepickerModule, MatMomentDateModule } from '@coachcare/datepicker';
 
 
 import {
@@ -18,7 +22,9 @@ import {
   MatButtonModule,
   MatToolbarModule,
   MatExpansionModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+
+  MatNativeDateModule
 } from '@angular/material';
 
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -42,6 +48,9 @@ import {
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HospitalDistComponent } from './hospital-dist/hospital-dist.component';
+import { MainDrugTableComponent } from './main-drug-table/main-drug-table.component';
+import { MainDrugAddComponent } from './main-drug-add/main-drug-add.component';
+import { from } from 'rxjs';
 
 
 
@@ -53,6 +62,7 @@ import { HospitalDistComponent } from './hospital-dist/hospital-dist.component';
     ComponentsModule,
     RouterModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     MatInputModule,
@@ -61,6 +71,9 @@ import { HospitalDistComponent } from './hospital-dist/hospital-dist.component';
     MatToolbarModule,
     MatExpansionModule,
     MatProgressSpinnerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMomentDateModule,
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     })
@@ -71,7 +84,10 @@ import { HospitalDistComponent } from './hospital-dist/hospital-dist.component';
     MatButtonModule,
     MatToolbarModule,
     MatExpansionModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatMomentDateModule
 
   ],
 
@@ -79,6 +95,8 @@ import { HospitalDistComponent } from './hospital-dist/hospital-dist.component';
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+
+
 
 
 
