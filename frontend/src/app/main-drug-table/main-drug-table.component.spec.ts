@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SupunComponent } from './supun.component';
+import { MainDrugTableComponent } from './main-drug-table.component';
 
-describe('SupunComponent', () => {
-  let component: SupunComponent;
-  let fixture: ComponentFixture<SupunComponent>;
+describe('MainDrugTableComponent', () => {
+  let component: MainDrugTableComponent;
+  let fixture: ComponentFixture<MainDrugTableComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SupunComponent ]
+      declarations: [ MainDrugTableComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SupunComponent);
+    fixture = TestBed.createComponent(MainDrugTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

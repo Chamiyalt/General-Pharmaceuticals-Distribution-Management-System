@@ -1,13 +1,15 @@
-<!-- table create -->
 
- <div class="animated fadeIn row md-12">
+<div class="animated fadeIn row md-12">
     <div class="row" style="width:100%">
+
+
+      <!-- main drug table -->
       <div class="col-md-12">
         <div class="main-content">
           <div class="container-fluid">
             <div class="card">
               <div class="card-header card-header-primary">
-                <h4 class="card-title">Divisional stores</h4>
+                <h4 class="card-title">Drug Details</h4>
                 <p class="card-category">Recorded Details</p>
               </div>
 
@@ -15,22 +17,21 @@
                 <table class="table table-responsive-sm">
                   <thead>
                     <tr>
-                      <th class="column">Outlet Name</th>
-                      <th class="column">Incharge Name</th>
-                      <th class="column">Address</th>
-                      <th class="column">Reg number</th>
-                      <th class="column">email</th>
-                      <th class="column">Tel number</th>
+                      <th class="column">Drug Name</th>
+                      <th class="column">Batch Number</th>
+                      <th class="column">Expiry Date</th>
+                      <th class="column">Quentity</th>
+
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let spc of spcs">
+                    <tr *ngFor="let Drug of drugs">
                       <td class="column">
 
                         <input
                           type="text"
-                          [size]="spc.OutletName.length"
-                          [(ngModel)]="spc.OutletName"
+                          [size]="Drug.DrugName.length"
+                          [(ngModel)]="Drug.DrugName"
                           style="border: none;"
                         />
                       </td>
@@ -38,8 +39,8 @@
 
                         <input
                           type="text"
-                          [size]="spc.InChargeName.length"
-                          [(ngModel)]="spc.InChargeName"
+                          [size]="Drug.Batch.length"
+                          [(ngModel)]="Drug.Batch"
                           style="border: none;"
                         />
                       </td>
@@ -47,8 +48,8 @@
 
                         <input
                           type="text"
-                          [size]="spc.Address.length"
-                          [(ngModel)]="spc.Address"
+
+                          [(ngModel)]="Drug.ExpiryDate"
                           style="border: none;"
                         />
                       </td>
@@ -56,29 +57,12 @@
 
                         <input
                           type="text"
-                          [size]="spc.RegNum.length"
-                          [(ngModel)]="spc.RegNum"
+                          [size]="Drug.Quentity.length"
+                          [(ngModel)]="Drug.Quentity"
                           style="border: none;"
                         />
                       </td>
-                      <td class="column">
 
-                        <input
-                          type="text"
-                          [size]="spc.email.length"
-                          [(ngModel)]="spc.email"
-                          style="border: none;"
-                        />
-                      </td>
-                      <td class="column">
-
-                          <input
-                            type="text"
-                            [size]="spc.Tel.length"
-                            [(ngModel)]="spc.Tel"
-                            style="border: none;"
-                          />
-                        </td>
 
                       <td class="column">
                         <div class="row">
@@ -88,8 +72,8 @@
                               mat-button
                               color="primary"
                               data-toggle="modal"
-                              data-target="#modalEditSpc"
-                              (click)="getSpcDetails(spc.id)"
+                              data-target="#modalEditDrug"
+                              (click)="getDrugDetails(Drug.id)"
                               >EDIT</a
                             >
                           </div>
@@ -97,7 +81,7 @@
                             <button
                               mat-button
                               color="warn"
-                              (click)="onDelete(spc.id)"
+                              (click)="onDelete(Drug.id)"
                             >
                               DELETE
                             </button>
@@ -110,12 +94,8 @@
               </div>
             </div>
 
-
-
-
-
-<!-- plus button -->
-            <div style="margin-left: 90%">
+  <!-- plus button -->
+            <!-- <div style="margin-left: 90%">
               <button
                 class="btn pmd-btn-fab pmd-ripple-effect btn-success pmd-button-raised"
                 data-toggle="modal"
@@ -129,16 +109,15 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
 
 
 
 
+    <!-- add Drug modal -->
 
-<!-- add modal create -->
-
-    <div
+    <!-- <div
       class="modal fade"
       id="modalLoginForm"
       tabindex="-1"
@@ -149,7 +128,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header text-center">
-            <h4 class="modal-title w-100 font-weight-bold">Add Devisional stores</h4>
+            <h4 class="modal-title w-100 font-weight-bold">Add Drugs</h4>
             <button
               type="button"
               class="close"
@@ -164,7 +143,7 @@
 
 
 
-          <form (submit)="onSaveSpc(postForm)"
+          <form (submit)="onSaveDrug(postForm)"
           #postForm="ngForm"
           *ngIf="!isLoading"
           >
@@ -176,15 +155,15 @@
                   <input
                     matInput
                     type="text"
-                    name="OutletName"
-                    [ngModel]="spc?.OutletName"
+                    name="DrugName"
+                    [ngModel]="drug?.DrugName"
                     required
                     minlength="3"
-                    placeholder="spc Outletname"
-                    #OutletName="ngModel"
+                    placeholder="Drug name"
+                    #DrugName="ngModel"
                   />
-                  <mat-error *ngIf="OutletName.invalid"
-                    >Please enter a Outlet Name</mat-error
+                  <mat-error *ngIf="DrugName.invalid"
+                    >Please enter a Drug name.</mat-error
                   >
                 </mat-form-field>
 
@@ -198,15 +177,15 @@
                   <input
                     matInput
                     type="text"
-                    name="InChargeName"
-                    [ngModel]="spc?.InChargeName"
+                    name="Batch"
+                    [ngModel]="drug?.Batch"
                     required
                     minlength="3"
-                    placeholder="InCharge name"
-                    #InChargeName="ngModel"
+                    placeholder="Batch Number"
+                    #Batch="ngModel"
                   />
-                  <mat-error *ngIf="InChargeName.invalid"
-                    >Please enter Incharge Name
+                  <mat-error *ngIf="Batch.invalid"
+                    >Please enter Batch number
                   </mat-error>
                 </mat-form-field>
 
@@ -219,15 +198,15 @@
                   <input
                     matInput
                     type="text"
-                    name="Address"
-                    [ngModel]="spc?.Address"
+                    name="ExpiryDate"
+                    [ngModel]="drug?.ExpiryDate"
                     required
                     minlength="3"
-                    placeholder="address"
-                    #Address="ngModel"
+                    placeholder="ExpiryDate"
+                    #ExpiryDate="ngModel"
                   />
-                  <mat-error *ngIf="Address.invalid"
-                    >Please enter a  Address.</mat-error
+                  <mat-error *ngIf="ExpiryDate.invalid"
+                    >Please enter a Hospital Address.</mat-error
                   >
                 </mat-form-field>
 
@@ -239,80 +218,40 @@
                   <input
                     matInput
                     type="text"
-                    name="RegNum"
-                    [ngModel]="spc?.RegNum"
+                    name="Quentity"
+                    [ngModel]="drug?.Quentity"
                     required
                     minlength="3"
-                    placeholder="Reg number"
-                    #RegNum="ngModel"
+                    placeholder="quentity"
+                    #Quentity="ngModel"
                   />
-                  <mat-error *ngIf="RegNum.invalid">Please enter a Registration number.</mat-error>
+                  <mat-error *ngIf="Quentity.invalid">Please enter a City.</mat-error>
                 </mat-form-field>
 
               </div>
 
-              <div class="md-form mb-4">
-                <i class="prefix grey-text"></i>
-                <mat-form-field>
-                  <input
-                    matInput
-                    type="text"
-                    name="email"
-                    [ngModel]="spc?.email"
-                    required
-                    minlength="3"
-                    placeholder="email Address"
-                    #email="ngModel"
-                  />
-                  <mat-error *ngIf="email.invalid"
-                    >Please enter a Email.</mat-error
-                  >
-                </mat-form-field>
-
-              </div>
-
-              <div class="md-form mb-4">
-                  <i class="prefix grey-text"></i>
-                  <mat-form-field>
-                    <input
-                      matInput
-                      type="text"
-                      name="Tel"
-                      [ngModel]="spc?.Tel"
-                      required
-                      minlength="3"
-                      placeholder=" telephone number"
-                      #Tel="ngModel"
-                    />
-                    <mat-error *ngIf="Tel.invalid"
-                      >Please enter a Telephone number.</mat-error
-                    >
-                  </mat-form-field>
-
-                </div>
 
             </div>
 
             <div class="modal-footer d-flex justify-content-center">
 
               <button mat-raised-button color="accent" type="submit">
-                Save Devisional store.
+                Save Drug
               </button>
             </div>
 
           </form>
         </div>
       </div>
-    </div>
+    </div> -->
 
 
 
-
-<!-- edit modal create -->
+    <!-- edit Drug modal -->
 
     <div
       class="modal fade"
-      id="modalEditSpc"
+      id="modalEditDrug"
       tabindex="-1"
       role="dialog"
       aria-labelledby="myModalLabel"
@@ -321,7 +260,7 @@
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header text-center">
-            <h4 class="modal-title w-100 font-weight-bold">Update devisional stores</h4>
+            <h4 class="modal-title w-100 font-weight-bold">Update Hospital</h4>
             <button
               type="button"
               class="close"
@@ -333,7 +272,7 @@
             </button>
           </div>
 
-          <form (submit)="editSpc(postForm)" #postForm="ngForm">
+          <form (submit)="editDrug(postForm)" #postForm="ngForm">
             <div class="modal-body mx-3">
               <div class="md-form mb-5">
                 <i class=" prefix grey-text"></i>
@@ -342,41 +281,41 @@
                   <input
                     matInput
                     type="text"
-                    name="OutletName"
-                    [ngModel]="spc?.OutletName"
+                    name="DrugName"
+                    [ngModel]="drug?.DrugName"
                     required
                     minlength="3"
-                    placeholder="outlet  name"
-                    #OutletName="ngModel"
+                    placeholder="Drug name"
+                    #DrugName="ngModel"
                   />
-                  <mat-error *ngIf="OutletName.invalid"
-                    >Please enter a Outlet name.</mat-error
+                  <mat-error *ngIf="DrugName.invalid"
+                    >Please enter a Drug name.</mat-error
                   >
                 </mat-form-field>
 
-
+                <!-- <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label> -->
               </div>
 
               <div class="md-form mb-5">
                 <i class=" prefix grey-text"></i>
-
+                <!-- <input type="email" id="defaultForm-email" class="form-control validate"> -->
                 <mat-form-field>
                   <input
                     matInput
                     type="text"
-                    name="InChargeName"
-                    [ngModel]="spc?.InChargeName"
+                    name="Batch"
+                    [ngModel]="drug?.Batch"
                     required
                     minlength="3"
-                    placeholder="Incharge name"
-                    #InChargeName="ngModel"
+                    placeholder="Batch number"
+                    #Batch="ngModel"
                   />
-                  <mat-error *ngIf="InChargeName.invalid"
-                    >Please enter Incharge name
+                  <mat-error *ngIf="Batch.invalid"
+                    >Please enter Batch Number
                   </mat-error>
                 </mat-form-field>
 
-
+                <!-- <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label> -->
               </div>
 
               <div class="md-form mb-4">
@@ -385,18 +324,19 @@
                   <input
                     matInput
                     type="text"
-                    name="Address"
-                    [ngModel]="spc?.Address"
+                    name="ExpiryDate"
+                    [ngModel]="drug?.ExpiryDate"
                     required
                     minlength="3"
-                    placeholder="Address"
-                    #Address="ngModel"
+                    placeholder="ExpiryDate"
+                    #ExpiryDate="ngModel"
                   />
-                  <mat-error *ngIf="Address.invalid"
-                    >Please enter a  Address.</mat-error
+                  <mat-error *ngIf="ExpiryDate.invalid"
+                    >Please enter a Hospital Address.</mat-error
                   >
                 </mat-form-field>
-
+                <!-- <input type="password" id="defaultForm-pass" class="form-control validate"> -->
+                <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label> -->
               </div>
 
               <div class="md-form mb-4">
@@ -405,64 +345,25 @@
                   <input
                     matInput
                     type="text"
-                    name="RegNum"
-                    [ngModel]="spc?.RegNum"
+                    name="Quentity"
+                    [ngModel]="drug?.Quentity"
                     required
                     minlength="3"
-                    placeholder="Reg number"
-                    #RegNum="ngModel"
+                    placeholder="Quentity"
+                    #Quentity="ngModel"
                   />
-                  <mat-error *ngIf="RegNum.invalid">Please enter a Reg number.</mat-error>
+                  <mat-error *ngIf="Quentity.invalid">Please enter a City.</mat-error>
                 </mat-form-field>
-
+                <!-- <input type="password" id="defaultForm-pass" class="form-control validate"> -->
+                <!-- <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label> -->
               </div>
 
-              <div class="md-form mb-4">
-                <i class="prefix grey-text"></i>
-                <mat-form-field>
-                  <input
-                    matInput
-                    type="text"
-                    name="email"
-                    [ngModel]="spc?.email"
-                    required
-                    minlength="3"
-                    placeholder="email"
-                    #email="ngModel"
-                  />
-                  <mat-error *ngIf="email.invalid"
-                    >Please enter a email.</mat-error
-                  >
-                </mat-form-field>
-
-              </div>
-
-
-              <div class="md-form mb-4">
-                  <i class="prefix grey-text"></i>
-                  <mat-form-field>
-                    <input
-                      matInput
-                      type="text"
-                      name="Tel"
-                      [ngModel]="spc?.Tel"
-                      required
-                      minlength="3"
-                      placeholder="Telephone number"
-                      #Tel="ngModel"
-                    />
-                    <mat-error *ngIf="Tel.invalid"
-                      >Please enter a Telephone number.</mat-error
-                    >
-                  </mat-form-field>
-
-                </div>
 
             </div>
             <div class="modal-footer d-flex justify-content-center">
-
+              <!-- <button class="btn btn-default">Login</button> -->
               <button mat-raised-button color="accent" type="submit">
-                Update Devisional stores.
+                Update Drugs
               </button>
             </div>
           </form>
@@ -470,5 +371,18 @@
       </div>
     </div>
 
+    <!-- <div class="text-center">
+      <button
+        type="button"
+        class="justify-content-center"
+        class="btn btn-info"
+        data-toggle="modal"
+        data-target="#modalLoginForm"
+      >
+        Add Hospital
+      </button> -->
 
+      <!-- <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalLoginForm">Launch
+        Modal Login Form</a> -->
+    <!-- </div> -->
   </div>
