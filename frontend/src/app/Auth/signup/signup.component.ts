@@ -13,6 +13,7 @@ import { AuthDataService } from '../auth.service';
 export class SignUpComponent implements OnInit {
 
   isLoading = false;
+  role = 'adimn';
 
 
   constructor(public authDataSerice: AuthDataService) { }
@@ -23,7 +24,7 @@ export class SignUpComponent implements OnInit {
     if(form.invalid){
       return;
     }
-    this.authDataSerice.createUser(form.value.email,form.value.password);
+    this.authDataSerice.createUser(form.value.email,form.value.password,this.role);
     console.log('done');
 
 }

@@ -36,6 +36,7 @@ import {
 
 import { LoginComponent } from 'app/Auth/login/login.component';
 import { SignUpComponent } from 'app/Auth/signup/signup.component';
+import { UserRole } from 'app/Auth/user-roles/userrole.component';
 
 
 
@@ -76,7 +77,8 @@ import { SignUpComponent } from 'app/Auth/signup/signup.component';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
-    
+    UserRole,
+
 
   ]
 })

@@ -8,7 +8,9 @@ import { Router } from '@angular/router';
 export class AuthDataService {
 private token: string;
 private isAuthenticated = false;
-  constructor(private http: HttpClient , private router: Router){}
+private iam = 'admin';
+
+constructor(private http: HttpClient , private router: Router){}
 
 
   private authStateListner = new Subject<boolean>();
@@ -25,8 +27,8 @@ private isAuthenticated = false;
     return this.isAuthenticated ;
   }
 
-  createUser(email:string,password:string ){
-    const authData:AuthData ={email:email,password: password};
+  createUser(email:string,password:string,role: string ){
+    const authData:AuthData ={email:email,password: password, role:role};
     this.http.post('http://localhost:3000/api/users/signup',authData).subscribe((response)=>{
       console.log(response['message']);
       alert(response['message']);
@@ -42,9 +44,13 @@ private isAuthenticated = false;
   }
 
   onlogin(email: string, password: string){
-    const authData: AuthData ={email:email,password: password};
-    this.http.post<{token: string}>('http://localhost:3000/api/users/signin',authData).subscribe((response)=>{
+    const authData:any={email:email,password: password};
+    this.http.post<{token: string, iam: string}>('http://localhost:3000/api/users/signin',authData).subscribe((response)=>{
       const token = response.token;
+
+      const am =response.iam;
+      console.log(am);
+
       console.log(token);
       this.token=token;
       if(token){

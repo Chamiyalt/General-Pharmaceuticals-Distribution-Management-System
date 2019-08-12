@@ -9,7 +9,8 @@ router.post("/signup",(req,res,next)=>{
   bcrypt.hash(req.body.password,10).then(hash=>{
     const user = new User({
       email:req.body.email,
-      password: hash
+      password: hash,
+      role: req.body.role
     });
     user.save().then(result=>{
       res.status(201).json({
@@ -42,9 +43,11 @@ router.post("/signin",(req,res,next)=>{
         message:'login faild'
       });
     }
+    console.log(fetchUser.role)
     const token = jwt.sign({email: fetchUser.email,userId: fetchUser._id},"secret_this_should_be_longer",{expiresIn:"1h"})
     res.status(201).json({
-      token:token
+      token:token,
+      iam:fetchUser.role
     });
   }).catch(err=>{
     return res.status(401).json({

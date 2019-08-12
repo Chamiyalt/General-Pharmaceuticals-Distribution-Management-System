@@ -16,6 +16,7 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { UserRole } from 'app/Auth/user-roles/userrole.component';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -79,5 +80,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'edithos/:hospitalId', component: UserProfileComponent },
     { path: 'editspc/:spcId',   component: SpcComponent },
+    { path: 'userrole',   component: UserRole },
 
 ];

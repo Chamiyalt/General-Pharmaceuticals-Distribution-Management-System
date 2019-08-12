@@ -23,15 +23,6 @@ mongoose.connect("mongodb+srv://chamiyalt:Chamin@123@cluster0-hw2z6.mongodb.net/
 });
 
 
-//lasantha
-// mongoose.connect("mongodb+srv://chamiyalt:Chamin@123@cluster0-hw2z6.mongodb.net/node-angular",{ useNewUrlParser: true }).then(()=>{
-//   console.log('connected to database');
-// }).catch(()=> {
-//   console.log('connection faild');
-// });
-
-
-
 
 
 app.use(bodyParser.json());
