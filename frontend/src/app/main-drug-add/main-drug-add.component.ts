@@ -21,6 +21,7 @@ export class MainDrugAddComponent implements OnInit {
   // form:FormGroup;
   private mode = "create";
   private drugId: string;
+
   id: string;
 
 
@@ -80,7 +81,7 @@ export class MainDrugAddComponent implements OnInit {
       }
     });
 
-    //getting medicen names
+    //getting Medicine names
     this.isLoading = true;
     this.medisService.getMedis();
     this.medisSub = this.medisService.getMediUpdateListener()

@@ -4,6 +4,8 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { LoginComponent } from './Auth/login/login.component';
+import { SignUpComponent } from './Auth/signup/signup.component';
 //import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes =[
@@ -21,7 +23,11 @@ const routes: Routes =[
         {
       path: '',
       loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
-  }]}
+  }]},
+  { path: 'login',        component: LoginComponent },
+  { path: 'signup',        component: SignUpComponent },
+
+
     // { path: 'dashboard',      component: DashboardComponent },
     // { path: 'user-profile',   component: UserProfileComponent },
     // { path: 'table-list',     component: TableListComponent },
@@ -42,6 +48,6 @@ const routes: Routes =[
     RouterModule.forRoot(routes)
   ],
   exports: [
-  ], 
+  ],
 })
 export class AppRoutingModule { }

@@ -17,6 +17,8 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { MainDrugTableComponent } from 'app/main-drug-table/main-drug-table.component';
 import { MainDrugAddComponent } from 'app/main-drug-add/main-drug-add.component';
+import { HospitalDrugQuentityComponent } from 'app/hospital-drug-quentity/hospital-drug-quentity.component';
+
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -65,6 +67,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'main-drug-table',   component: MainDrugTableComponent },
     { path: 'main-drug-add',   component: MainDrugAddComponent },
+    { path: 'hospital-drug-quentity',   component: HospitalDrugQuentityComponent },
 
     { path: 'spc',   component: SpcComponent },
 
@@ -79,5 +82,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
     { path: 'edithos/:hospitalId', component: UserProfileComponent },
-    { path: 'editspc/:spcId',   component: SpcComponent }
+    { path: 'editspc/:spcId',   component: SpcComponent },
+
 ];
