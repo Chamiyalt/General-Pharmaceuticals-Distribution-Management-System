@@ -1,11 +1,12 @@
 const express = require("express");
 const Hospital = require("../models/hospital");
+const checkAuth = require('../middleware/check-auth')
 
 const router = express.Router();
 
 
 //hospital add
-router.post("", (req, res, next) => {
+router.post("", checkAuth,(req, res, next) => {
   const hospital = new Hospital({
     Hname: req.body.Hname,
     Dirname: req.body.Dirname,

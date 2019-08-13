@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const medisRoutes = require("./routes/medis");
 const spcsRoutes = require("./routes/spcs");
 const hospitalsRoutes = require("./routes/hospitals");
+const drugsRoutes = require("./routes/drugs");
 const dealersRoutes = require("./routes/dealers");
 
 //Chamin's Route
@@ -21,6 +22,15 @@ mongoose.connect("mongodb+srv://chamiyalt:Chamin@123@cluster0-hw2z6.mongodb.net/
 }).catch(()=> {
   console.log('connection faild');
 });
+
+
+//lasantha
+mongoose.connect("mongodb+srv://chamiyalt:Chamin@123@cluster0-hw2z6.mongodb.net/node-angular",{ useNewUrlParser: true }).then(()=>{
+  console.log('connected to database');
+}).catch(()=> {
+  console.log('connection faild');
+});
+
 
 
 
@@ -56,9 +66,12 @@ app.use("/api/spcs", spcsRoutes);
 app.use("/api/medis", medisRoutes);
 app.use("/api/dealers", dealersRoutes);
 
+
+app.use("/api/drugs", drugsRoutes);
 //Chamin's Route
 app.use("/api/users",userRoutes);
 //Chamin's Route
+
 
 
 module.exports = app;
