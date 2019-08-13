@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './Auth/login/login.component';
 import { SignUpComponent } from './Auth/signup/signup.component';
+import { AuthGuard } from './Auth/auth.guard';
 //import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes =[
@@ -24,7 +25,7 @@ const routes: Routes =[
       path: '',
       loadChildren: './layouts/admin-layout/admin-layout.module#AdminLayoutModule'
   }]},
-  { path: 'login',        component: LoginComponent },
+  { path: 'login',        component: LoginComponent},
   { path: 'signup',        component: SignUpComponent },
 
 
@@ -49,5 +50,6 @@ const routes: Routes =[
   ],
   exports: [
   ],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }

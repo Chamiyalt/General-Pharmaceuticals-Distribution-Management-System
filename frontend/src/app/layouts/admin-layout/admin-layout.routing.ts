@@ -18,6 +18,7 @@ import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { MainDrugTableComponent } from 'app/main-drug-table/main-drug-table.component';
 import { MainDrugAddComponent } from 'app/main-drug-add/main-drug-add.component';
 import { UserRole } from 'app/Auth/user-roles/userrole.component';
+import { AuthGuard } from 'app/Auth/auth.guard';
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -64,7 +65,7 @@ export const AdminLayoutRoutes: Routes = [
     //     }]
     // }
     { path: 'dashboard',      component: DashboardComponent },
-    { path: 'user-profile',   component: UserProfileComponent },
+    { path: 'user-profile',   component: UserProfileComponent, canActivate: [AuthGuard] },
     { path: 'main-drug-table',   component: MainDrugTableComponent },
     { path: 'main-drug-add',   component: MainDrugAddComponent },
 

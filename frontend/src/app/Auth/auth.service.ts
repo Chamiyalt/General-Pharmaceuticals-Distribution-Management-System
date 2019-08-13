@@ -40,7 +40,8 @@ constructor(private http: HttpClient , private router: Router){}
     this.token = null;
     this.isAuthenticated = false;
     this.authStateListner.next(false);
-    this.router.navigate(['/']);
+    this.clearAuthData();
+    this.router.navigate(['/login']);
   }
 
   onlogin(email: string, password: string){
@@ -56,12 +57,47 @@ constructor(private http: HttpClient , private router: Router){}
       if(token){
         this.isAuthenticated = true;
         this.authStateListner.next(true);
+        this.saveAuthData(token);
         this.router.navigate(['/']);
       }
 
     });
 
   }
+
+  //Auto auth
+
+  autoAuthUser(){
+
+    const authInformation = this.getAuthData();
+    if(!authInformation){
+      return;
+  }
+    this.token = authInformation.token;
+    this.isAuthenticated = true;
+    this.authStateListner.next(true);
+
+  }
+
+private saveAuthData(token:string){
+    localStorage.setItem('token',token);
+
+
+}
+
+private clearAuthData(){
+  localStorage.removeItem("token");
+}
+
+private getAuthData(){
+  const token = localStorage.getItem("token");
+  if(!token){
+    return;
+  }
+  return {
+    token: token
+  }
+}
 
 }
 
