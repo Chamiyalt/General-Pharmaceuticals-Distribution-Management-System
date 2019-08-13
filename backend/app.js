@@ -60,6 +60,9 @@ app.use("/api/medis", medisRoutes);
 app.use("/api/dealers", dealersRoutes);
 app.use("/api/hospitalsQuentity",hospitalsQuentityRoutes);
 
+
+app.use("/api/drugs", drugsRoutes);
+
 //Chamin's Route
 app.use("/api/users",userRoutes);
 //Chamin's Route

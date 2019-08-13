@@ -49,16 +49,13 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { HttpClientModule } from '@angular/common/http';
 import { HospitalDistComponent } from './hospital-dist/hospital-dist.component';
 
-// import { MainDrugTableComponent } from './main-drug-table/main-drug-table.component';
-// import { MainDrugAddComponent } from './main-drug-add/main-drug-add.component';
+import { MainDrugTableComponent } from './main-drug-table/main-drug-table.component';
+import { MainDrugAddComponent } from './main-drug-add/main-drug-add.component';
 import { from } from 'rxjs';
-
-// =======
 
 
 import { LoginComponent } from './Auth/login/login.component';
 import { SignUpComponent } from './Auth/signup/signup.component';
-import { HospitalDrugQuentityComponent } from './hospital-drug-quentity/hospital-drug-quentity.component';
 
 
 
@@ -103,9 +100,13 @@ import { HospitalDrugQuentityComponent } from './hospital-drug-quentity/hospital
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-     LoginComponent,
+
+
+
+
+    LoginComponent,
     SignUpComponent,
-    
+
 
 
 
