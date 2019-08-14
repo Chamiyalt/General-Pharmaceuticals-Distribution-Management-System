@@ -34,14 +34,14 @@
             </div>
 
             <mat-form-field>
-              <mat-label>Drug Name new</mat-label>
-                <mat-select [(value)]="role" >
-                  <mat-option *ngFor="let one of roles" [value]="one.value" >
+              <mat-label class="position">Position</mat-label>
+                <mat-select [(value)]="role"   >
+                  <mat-option *ngFor="let one of roles" [value]="one.value" class="option-panel">
                     {{one.viewValue}}
                   </mat-option>
                 </mat-select>
             </mat-form-field>
-            <h3>{{role}}</h3>
+            
 
             <!-- <mat-form-field>
               <mat-label>Division</mat-label>
@@ -71,8 +71,9 @@
             <!-- <div class="row align-items-center remember">
               <input type="checkbox">Remember Me
             </div> -->
-            <div class="form-group">
-              <button type="submit" value="Login" class="btn float-right login_btn">SignUp</button>
+
+            <div class="form-group " >
+              <button type="submit" value="Login" class="btn float-right login_btn">Sign Up</button>
             </div>
           </form>
         </div>

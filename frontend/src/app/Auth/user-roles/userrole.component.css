@@ -76,6 +76,8 @@ margin-right: 5px;
 color: black;
 background-color: #FFC312;
 width: 100px;
+
+
 }
 
 .login_btn:hover{
@@ -89,4 +91,13 @@ color: white;
 
 .links a{
 margin-left: 4px;
+}
+
+.position{
+  color: bisque;
+}
+
+.option-panel{
+  color: black;
+  background-color: grey;
 }
