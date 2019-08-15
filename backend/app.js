@@ -7,6 +7,7 @@ const spcsRoutes = require("./routes/spcs");
 const hospitalsRoutes = require("./routes/hospitals");
 const drugsRoutes = require("./routes/drugs");
 const dealersRoutes = require("./routes/dealers");
+const distributionRoutes = require('./routes/distribution');
 
 //Chamin's Route
 const userRoutes = require('./routes/users');
@@ -70,6 +71,7 @@ app.use("/api/dealers", dealersRoutes);
 app.use("/api/drugs", drugsRoutes);
 //Chamin's Route
 app.use("/api/users",userRoutes);
+app.use("/api/distribution",distributionRoutes);
 //Chamin's Route
 
 
