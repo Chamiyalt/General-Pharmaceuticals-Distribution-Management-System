@@ -65,6 +65,7 @@ app.use("/api/hospitalsQuentity",hospitalsQuentityRoutes);
 app.use("/api/drugs", drugsRoutes);
 //Chamin's Route
 app.use("/api/users",userRoutes);
+app.use("/api/distribution",distributionRoutes);
 //Chamin's Route
 
 app.use("/api/distribution",distributionRoutes);
