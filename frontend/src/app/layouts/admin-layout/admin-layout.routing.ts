@@ -20,7 +20,7 @@ import { MainDrugAddComponent } from 'app/main-drug-add/main-drug-add.component'
 import { UserRole } from 'app/Auth/user-roles/userrole.component';
 import { AuthGuard } from 'app/Auth/auth.guard';
 import { HospitalDrugQuentityComponent } from 'app/hospital-drug-quentity/hospital-drug-quentity.component';
-import { DashboardDisplayComponent } from 'app/dashboard-display/dashboard-display.component';
+
 
 
 export const AdminLayoutRoutes: Routes = [
@@ -75,7 +75,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'spc',   component: SpcComponent },
 
     { path: 'medi',   component: MediComponent },
-    { path: 'dashboard-display',   component: DashboardDisplayComponent },
+
 
 
 
@@ -90,5 +90,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'edithos/:hospitalId', component: UserProfileComponent },
     { path: 'editspc/:spcId',   component: SpcComponent },
     { path: 'userrole',   component: UserRole },
+    { path: 'nofification',   component: NotificationsComponent },
 
 ];

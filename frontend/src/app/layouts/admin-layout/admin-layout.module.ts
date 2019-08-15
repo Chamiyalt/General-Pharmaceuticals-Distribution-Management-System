@@ -17,7 +17,7 @@ import { HospitalDistComponent } from '../../hospital-dist/hospital-dist.compone
 
 import { HospitalDrugQuentityComponent } from '../../hospital-drug-quentity/hospital-drug-quentity.component';
 
-import { DashboardDisplayComponent } from '../../dashboard-display/dashboard-display.component';
+
 
 import { TableListComponent } from '../../table-list/table-list.component';
 import { TypographyComponent } from '../../typography/typography.component';
@@ -79,7 +79,6 @@ import { from } from 'rxjs';
     UserProfileComponent,
     MainDrugTableComponent,
     MainDrugAddComponent,
-    DashboardDisplayComponent,
     SpcComponent,
 
     MediComponent,
@@ -95,6 +94,7 @@ import { from } from 'rxjs';
     NotificationsComponent,
     UpgradeComponent,
     UserRole,
+    NotificationsComponent,
 
 
   ]

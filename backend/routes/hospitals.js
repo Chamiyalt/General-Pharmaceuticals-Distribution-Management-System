@@ -6,7 +6,7 @@ const router = express.Router();
 
 
 //hospital add
-router.post("", checkAuth,(req, res, next) => {
+router.post("",(req, res, next) => {
   const hospital = new Hospital({
     Hname: req.body.Hname,
     Dirname: req.body.Dirname,

@@ -9,11 +9,16 @@ const drugsRoutes = require("./routes/drugs");
 const dealersRoutes = require("./routes/dealers");
 const hospitalsQuentityRoutes = require("./routes/hospitalsQuentity");
 const distributionRoutes =require("./routes/distribution");
+const hospitalDistributionRoutes = require('./routes/hospitaldistribution');
 
 //Chamin's Route
 const userRoutes = require('./routes/users');
 
 //Chamin's Route
+
+//v
+const hospitalquentities = require("./routes/vroutes");
+//v
 
 const app = express();
 // pM2VIQQ9UffJCUJl
@@ -68,10 +73,14 @@ app.use("/api/users",userRoutes);
 app.use("/api/distribution",distributionRoutes);
 //Chamin's Route
 
-app.use("/api/distribution",distributionRoutes);
+app.use("/api/hdistribution",hospitalDistributionRoutes);
 
 
-
+//v routes
+app.use("/api/hospitalquentities", hospitalquentities);
+const stocks = require("./routes/stocksv");
+app.use("/api/stocks", stocks);
+//v routes
 
 module.exports = app
 
