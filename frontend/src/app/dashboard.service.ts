@@ -47,20 +47,20 @@ export class DashboardsService {
   }
 
 
-  addDashboard(DrugName: string,Batch: string,Spc: string, Quentity: string) {
-    const dashboard: Dashboard = { id: null, DrugName: DrugName, Batch: Batch,Spc:Spc,Quentity:Quentity};
-   this.http
-      .post<{ message: string, dashboardId: string }>("http://localhost:3000/api/dashboards", dashboard)
+  transferMedicine(DrugName: string,Spc: string, Quentity: string) {
+
+    const queryParams =`?drugName=${DrugName}&quantity=${Quentity}&divisionalStore=${Spc}`;
+     console.log(queryParams);
+     console.log('s ok');
+    this.http.get<{message: string}>('http://localhost:3000/api/distribution' + queryParams)
       .subscribe(responseData => {
-        const id = responseData.dashboardId;
-        dashboard.id = id;
-        this.dashboards.push(dashboard);
-        this.dashboardsUpdated.next([...this.dashboards]);
-        this.router.navigate(["/user-profile"]);
+        console.log(responseData.message);
       });
   }
 
   updateDashboard(id: string, DrugName: string,Batch: string,Spc: string,Quentity: string){
+
+
     console.log('asdsadasdasd')
     const dashboard: Dashboard = { id: id,DrugName: DrugName,Batch: Batch,Spc:Spc,Quentity:Quentity};
       this.http.put("http://localhost:3000/api/dashboards/" + id, dashboard)

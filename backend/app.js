@@ -28,10 +28,6 @@ mongoose.connect("mongodb+srv://chamiyalt:Chamin@123@cluster0-hw2z6.mongodb.net/
 
 
 
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
 //
 // app.use((req, res, next) => {
 //   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -45,6 +41,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //   );
 //   next();
 // });
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
 
 app.use((req, res, next) =>{
   res.setHeader("Access-Control-Allow-Origin","*");

@@ -58,6 +58,7 @@ export class DashboardComponent implements OnInit {
   idBatch: string;
 
 
+
   private medisSub: Subscription;
   private spcsSub: Subscription;
   private drugsSub: Subscription;
@@ -295,22 +296,13 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  onSaveDashboard(form:NgForm) {
+  trnsferMedicine(form:NgForm) {
     if (form.invalid) {
       return;
     }
     this.isLoading = true;
-    if (this.mode === "create") {
-      this.dashboardsService.addDashboard(this.idDrugName, form.value.idBatch,form.value.idSpc,form.value.Quentity);
-    } else {
-      this.dashboardsService.updateDashboard(
-        this.dashboardId,
-        form.value.DrugName,
-        form.value.Batch,
-        form.value.spc,
-        form.value.Quentity
-      );
-    }
+    this.dashboardsService.transferMedicine(this.idDrugName,this.idSpc,form.value.Quentity);
+    console.log('ts ok');
      form.resetForm();
     //this.form.reset();
   }

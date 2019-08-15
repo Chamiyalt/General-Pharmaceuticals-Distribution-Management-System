@@ -13,7 +13,7 @@
                     </div>
                     <div class="card-body">
 
-                        <form (submit)="onSaveDashboard(postForm)" #postForm="ngForm" *ngIf="!isLoading">
+                        <form (submit)="trnsferMedicine(postForm)" #postForm="ngForm" *ngIf="!isLoading">
 
                         <div class="row">
                           <div class="col-md-4">
@@ -64,7 +64,7 @@
                                 <div class="row">
                                 <div class="col-md-4">
                                   <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Quentity" type="text">
+                                    <input matInput placeholder="Quentity" name="Quentity" ngModel type="text">
                                   </mat-form-field>
                                 </div>
                             </div>

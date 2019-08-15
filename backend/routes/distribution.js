@@ -8,8 +8,8 @@ const DivisionalStoresData = require('../models/spc');
 
 router.get("",(req,res,next)=>{
 
-  reqquantity =+380;
-  name = "Kaluthara";
+  reqquantity =+req.query.quantity;
+  name = req.query.divisionalStore;
   rest1=0;
   rest2=0;
   rest3=0;
@@ -24,7 +24,7 @@ router.get("",(req,res,next)=>{
   drug1Exp=null;
 
 
-  drugName='Panadol';
+  drugName=req.query.drugName;
   batch1 = "222";
 
   Drug.find({DrugName:drugName,Batch:"222"}).then(document => {
