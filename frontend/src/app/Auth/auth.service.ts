@@ -77,6 +77,7 @@ constructor(private http: HttpClient , private router: Router){}
     this.isAuthenticated = true;
     this.authStateListner.next(true);
 
+
   }
 
 private saveAuthData(token:string){

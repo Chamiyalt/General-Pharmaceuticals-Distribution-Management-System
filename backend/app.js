@@ -7,7 +7,8 @@ const spcsRoutes = require("./routes/spcs");
 const hospitalsRoutes = require("./routes/hospitals");
 const drugsRoutes = require("./routes/drugs");
 const dealersRoutes = require("./routes/dealers");
-const distributionRoutes = require('./routes/distribution');
+const hospitalsQuentityRoutes = require("./routes/hospitalsQuentity");
+const distributionRoutes =require("./routes/distribution");
 
 //Chamin's Route
 const userRoutes = require('./routes/users');
@@ -19,14 +20,6 @@ const app = express();
 // 134.209.146.166
 
 mongoose.connect("mongodb+srv://chamiyalt:Chamin@123@cluster0-hw2z6.mongodb.net/node-angular?retryWrites=true",{ useNewUrlParser: true }).then(()=>{
-  console.log('connected to database');
-}).catch(()=> {
-  console.log('connection faild');
-});
-
-
-//lasantha
-mongoose.connect("mongodb+srv://chamiyalt:Chamin@123@cluster0-hw2z6.mongodb.net/node-angular",{ useNewUrlParser: true }).then(()=>{
   console.log('connected to database');
 }).catch(()=> {
   console.log('connection faild');
@@ -66,6 +59,7 @@ app.use("/api/hospitals", hospitalsRoutes);
 app.use("/api/spcs", spcsRoutes);
 app.use("/api/medis", medisRoutes);
 app.use("/api/dealers", dealersRoutes);
+app.use("/api/hospitalsQuentity",hospitalsQuentityRoutes);
 
 
 app.use("/api/drugs", drugsRoutes);
@@ -74,6 +68,11 @@ app.use("/api/users",userRoutes);
 app.use("/api/distribution",distributionRoutes);
 //Chamin's Route
 
+app.use("/api/distribution",distributionRoutes);
 
 
-module.exports = app;
+
+
+module.exports = app
+
+

@@ -57,6 +57,8 @@ import { from } from 'rxjs';
 import { LoginComponent } from './Auth/login/login.component';
 import { SignUpComponent } from './Auth/signup/signup.component';
 import { AuthInterceptor } from './Auth/auth-interceptor';
+// import { DivisionalDrugQuentityComponent } from './divisional-drug-quentity/divisional-drug-quentity.component';
+// import { DashboardDisplayComponent } from './dashboard-display/dashboard-display.component';
 
 
 
@@ -106,6 +108,8 @@ import { AuthInterceptor } from './Auth/auth-interceptor';
 
     LoginComponent,
     SignUpComponent,
+    // DivisionalDrugQuentityComponent,
+    // DashboardDisplayComponent,
 
 
 
