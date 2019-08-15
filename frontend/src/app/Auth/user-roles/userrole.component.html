@@ -1,0 +1,93 @@
+<div id="outer">
+  <div id="main">
+  <div class="container">
+    <div class="d-flex justify-content-center h-100">
+      <div class="card">
+        <div class="card-header">
+          <h3>Sign Up</h3>
+          <!-- <div class="d-flex justify-content-end social_icon">
+            <span><i class="fab fa-facebook-square"></i></span>
+            <span><i class="fab fa-google-plus-square"></i></span>
+            <span><i class="fab fa-twitter-square"></i></span>
+          </div> -->
+        </div>
+        <div class="card-body">
+          <form #loginForm="ngForm" (submit)="onsignUp(loginForm)" >
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+              </div>
+              <input ngModel name="email" #emailInput="ngModel" required email placeholder="email"
+                class="form-control"
+                />
+                <mat-error *ngIf="emailInput.invalid" >Please enter the E-mail</mat-error>
+
+            </div>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-key"></i></span>
+              </div>
+              <input ngModel name="password" #passwordInput="ngModel" required type="password" placeholder="password"
+                class="form-control"
+                />
+                <mat-error *ngIf="passwordInput.invalid" >Please enter the Content</mat-error>
+            </div>
+
+            <mat-form-field>
+              <mat-label>Drug Name new</mat-label>
+                <mat-select [(value)]="role" >
+                  <mat-option *ngFor="let one of roles" [value]="one.value" >
+                    {{one.viewValue}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <h3>{{role}}</h3>
+
+            <!-- <mat-form-field>
+              <mat-label>Division</mat-label>
+              <select matNativeControl [(value)]="role" required>
+                <option value="admin">Operator</option>
+                <option value="division">Divisional Officer</option>
+                <option value="hoospital">Dispencer</option>
+                <option value="ministry">Minisrty Officer</option>
+              </select>
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label>Hospital</mat-label>
+              <select matNativeControl [(value)]="role" required>
+                <option value="admin">Operator</option>
+                <option value="division">Divisional Officer</option>
+                <option value="hoospital">Dispencer</option>
+                <option value="ministry">Minisrty Officer</option>
+              </select>
+            </mat-form-field> -->
+
+
+
+
+
+
+            <!-- <div class="row align-items-center remember">
+              <input type="checkbox">Remember Me
+            </div> -->
+            <div class="form-group">
+              <button type="submit" value="Login" class="btn float-right login_btn">SignUp</button>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-center links">
+
+          </div>
+          <div class="d-flex justify-content-center">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+

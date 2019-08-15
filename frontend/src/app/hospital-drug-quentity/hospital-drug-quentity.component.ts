@@ -10,6 +10,9 @@ import { Subscription } from 'rxjs';
 import { Hospital } from '../hospital.model';
 import { HospitalsService } from '../hospitals.service';
 
+import { Drug } from '../drug.model';
+import { DrugsService } from '../drugs.service';
+
 
 import { MedisService } from "app/medis.service";
 import { Medi } from "app/medi.model";

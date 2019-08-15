@@ -17,6 +17,8 @@ import { HospitalDistComponent } from '../../hospital-dist/hospital-dist.compone
 
 import { HospitalDrugQuentityComponent } from '../../hospital-drug-quentity/hospital-drug-quentity.component';
 
+import { DashboardDisplayComponent } from '../../dashboard-display/dashboard-display.component';
+
 import { TableListComponent } from '../../table-list/table-list.component';
 import { TypographyComponent } from '../../typography/typography.component';
 import { IconsComponent } from '../../icons/icons.component';
@@ -43,6 +45,8 @@ import {
 
 import { LoginComponent } from 'app/Auth/login/login.component';
 import { SignUpComponent } from 'app/Auth/signup/signup.component';
+import { UserRole } from 'app/Auth/user-roles/userrole.component';
+import { from } from 'rxjs';
 
 
 
@@ -75,6 +79,7 @@ import { SignUpComponent } from 'app/Auth/signup/signup.component';
     UserProfileComponent,
     MainDrugTableComponent,
     MainDrugAddComponent,
+    DashboardDisplayComponent,
     SpcComponent,
 
     MediComponent,
@@ -89,6 +94,7 @@ import { SignUpComponent } from 'app/Auth/signup/signup.component';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    UserRole,
 
 
   ]

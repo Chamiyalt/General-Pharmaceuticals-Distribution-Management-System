@@ -10,6 +10,7 @@ import { Medi } from "app/medi.model";
 
 import { Hospital } from "../hospital.model";
 import { HospitalsService } from "../hospitals.service";
+import { AuthDataService } from "app/Auth/auth.service";
 
 
 
@@ -27,7 +28,7 @@ export class HospitalDistComponent implements OnInit {
   private medisSub: Subscription;
   isLoading = false;
 
-  constructor(public medisService: MedisService , public hospitalsService: HospitalsService) {}
+  constructor(public medisService: MedisService , public hospitalsService: HospitalsService, private authService: AuthDataService) {}
 
 
 
@@ -35,10 +36,22 @@ export class HospitalDistComponent implements OnInit {
   private hospitalsSub: Subscription;
   //isLoading = false;
 
-
-
+  //Authenticate
+  userIsAuthenticated = false;
+  private authListnerSub: Subscription;
+  //Authenticate 
 
   ngOnInit() {
+
+    //Authenticate
+    this.userIsAuthenticated = this.authService.getIsAuth();
+  this.authListnerSub = this.authService.getAuthStatusListner().subscribe(isAuthenticated =>{
+    this.userIsAuthenticated = isAuthenticated;
+  });
+
+  //Authenticate
+
+
     this.isLoading = true;
     this.medisService.getMedis();
     this.medisSub = this.medisService.getMediUpdateListener()

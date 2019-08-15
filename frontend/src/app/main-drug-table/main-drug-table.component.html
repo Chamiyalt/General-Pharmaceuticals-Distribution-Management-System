@@ -68,14 +68,23 @@
                         <div class="row">
                           <div class="col-md-6">
 
-                            <a
+                            <!-- <a
                               mat-button
                               color="primary"
                               data-toggle="modal"
                               data-target="#modalEditDrug"
                               (click)="getDrugDetails(Drug.id)"
                               >EDIT</a
-                            >
+                            > -->
+
+                            <a
+                              mat-button
+                              color="primary"
+
+                              [routerLink]="['/main-drug-add',drug.id]">EDIT</a>
+
+
+
                           </div>
                           <div class="col-md-6">
                             <button

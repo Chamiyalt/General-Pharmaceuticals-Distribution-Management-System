@@ -5,7 +5,7 @@ const HospitalQuentity = require("../models/hospitalQuentity");
 const router = express.Router();
 
 
-//hospital Quentity add
+//hospital Quentity add dfined quantity
 router.post("", (req, res, next) => {
   const hospitalQuentity = new HospitalQuentity({
     Hname: req.body.Hname,

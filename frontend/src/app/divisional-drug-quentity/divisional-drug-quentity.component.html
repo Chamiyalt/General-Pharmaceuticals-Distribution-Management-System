@@ -8,7 +8,7 @@
         <div class="container-fluid">
           <div class="card">
             <div class="card-header card-header-danger">
-              <h4 class="card-title">Hospital Quentity Details</h4>
+              <h4 class="card-title">Divisional Quentity Details</h4>
               <p class="card-category">Recorded Details</p>
             </div>
 
@@ -16,7 +16,7 @@
               <table class="table table-responsive-sm">
                 <thead>
                   <tr>
-                    <th class="column">Hospital Name</th>
+                    <th class="column">Divisional Branch</th>
                     <th class="column">Drug Name</th>
                     <th class="column">Drug Quentity</th>
                     <th class="column">Action</th>
@@ -24,12 +24,12 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let hospitalQuentity of hospitalsQuentity">
+                  <tr *ngFor="let divisionalQuentity of divisionalsQuentity">
                     <td class="column">
 
                       <input
                         type="text"
-                        [(ngModel)]="hospitalQuentity.Hname"
+                        [(ngModel)]="divisionalQuentity.OutletName"
                         style="border: none;"
                       />
                     </td>
@@ -37,7 +37,7 @@
 
                       <input
                         type="text"
-                        [(ngModel)]="hospitalQuentity.DrugName"
+                        [(ngModel)]="divisionalQuentity.DrugName"
                         style="border: none;"
                       />
                     </td>
@@ -46,7 +46,7 @@
 
                       <input
                         type="text"
-                        [(ngModel)]="hospitalQuentity.quentity"
+                        [(ngModel)]="divisionalQuentity.quentity"
                         style="border: none;"
                       />
                     </td>
@@ -85,15 +85,15 @@
                       <div class="col-md-3">
                       <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-md btn-just-icon">
                           <i class="material-icons" data-toggle="modal"
-                          data-target="#modalEditHospitalQuentity"
-                          (click)="getHospitalQuentityDetails(hospitalQuentity.id)" >edit</i>
+                          data-target="#modalEditDivisionalQuentity"
+                          (click)="getDivisionalQuentityDetails(divisionalQuentity.id)" >edit</i>
                       </button>
                       </div>
 
                       <!-- for delete -->
                       <div class="col-md-3">
                       <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-md btn-just-icon">
-                          <i class="material-icons" (click)="onDelete(hospitalQuentity.id)" >close</i>
+                          <i class="material-icons" (click)="onDelete(divisionalQuentity.id)" >close</i>
                       </button>
                       </div>
                       </div>
@@ -131,7 +131,7 @@
 
 
 
-  <!-- add hospital modal -->
+  <!-- add Divisional modal -->
 
   <div
     class="modal fade"
@@ -159,7 +159,7 @@
 
 
 
-        <form (submit)="onSaveHospitalQuentity(postForm)"
+        <form (submit)="onSaveDivisionalQuentity(postForm)"
         #postForm="ngForm"
         *ngIf="!isLoading"
         >
@@ -169,11 +169,11 @@
 
 
               <mat-form-field>
-                <mat-label>Hospital Name</mat-label>
-                  <mat-select [(value)]="HospitalValue" >
+                <mat-label>Store </mat-label>
+                  <mat-select [(value)]="SpcValue" >
 
-                    <mat-option *ngFor="let hospital of hospitals" [value]="hospital.Hname" >
-                      {{hospital.Hname}}
+                    <mat-option *ngFor="let spc of spcs" [value]="spc.OutletName" >
+                      {{spc.OutletName}}
                     </mat-option>
                   </mat-select>
               </mat-form-field>
@@ -235,7 +235,7 @@
                 matInput
                 type="text"
                 name="quentity"
-                [ngModel]="hospitalQuentity?.quentity"
+                [ngModel]="divisionalQuentity?.quentity"
                 required
                 minlength="3"
                 placeholder="Drug Quentity"
@@ -252,7 +252,7 @@
           <div class="modal-footer d-flex justify-content-center">
             <!-- <button class="btn btn-default">Login</button> -->
             <button mat-raised-button color="accent" type="submit">
-              Save Hospital Quentity
+              Save Divisional Quentity
             </button>
           </div>
 
@@ -267,7 +267,7 @@
 
     <div
     class="modal fade"
-    id="modalEditHospitalQuentity"
+    id="modalEditDivisionalQuentity"
     tabindex="-1"
     role="dialog"
     aria-labelledby="myModalLabel"
@@ -288,7 +288,7 @@
           </button>
         </div>
 
-        <form (submit)="editHospitalQuentity(postForm)" #postForm="ngForm">
+        <form (submit)="editDivisionalQuentity(postForm)" #postForm="ngForm">
           <div class="modal-body mx-3">
             <div class="md-form mb-5">
               <i class=" prefix grey-text"></i>
@@ -298,14 +298,14 @@
                   matInput
                   type="text"
                   name="Hname"
-                  [ngModel]="hospitalQuentity?.Hname"
+                  [ngModel]="divisionalQuentity?.OutletName"
                   required
                   minlength="3"
                   placeholder="Hospital name"
                   #Hname="ngModel"
                 />
                 <mat-error *ngIf="Hname.invalid"
-                  >Please enter a Hospital name.</mat-error
+                  >Please enter a Outlet  name.</mat-error
                 >
               </mat-form-field>
 
@@ -320,7 +320,7 @@
                   matInput
                   type="text"
                   name="DrugName"
-                  [ngModel]="hospitalQuentity?.DrugName"
+                  [ngModel]="divisionalQuentity?.DrugName"
                   required
                   minlength="3"
                   placeholder="Drug Name"
@@ -341,7 +341,7 @@
                   matInput
                   type="text"
                   name="quentity"
-                  [ngModel]="hospitalQuentity?.quentity"
+                  [ngModel]="divisionalQuentity?.quentity"
                   required
                   minlength="3"
                   placeholder="Quentity"

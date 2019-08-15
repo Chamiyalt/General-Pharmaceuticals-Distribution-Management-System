@@ -1,6 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+
 import * as Chartist from 'chartist';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+
+
+import { Component, OnInit,OnDestroy,ViewChild, ElementRef  } from '@angular/core';
+
+// import { Component, OnInit } from '@angular/core';
+import { NgForm } from "@angular/forms";
+
+import { Subscription } from 'rxjs';
+
+import { Dashboard } from '../dashboard.model';
+import { DashboardsService } from '../dashboard.service';
+
+
+import { MedisService } from "app/medis.service";
+import { Medi } from "app/medi.model";
+
+import { SpcsService } from '../spcs.service';
+import { Spc } from "app/spc.model";
+
+import { DrugsService } from '../drugs.service';
+import { Drug } from "app/drug.model";
+
+
+import { HospitalQuentity } from '../hospitalQuentity.model';
+import { HospitalsQuentityService } from '../hospitalsQuentity.service';
+
+
+import { ActivatedRoute, ParamMap } from "@angular/router"
+
+
+
+
+
+
+
 
 
 @Component({
@@ -9,6 +44,36 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+
+
+  dashboard: Dashboard;
+  isLoading = false;
+  // form:FormGroup;
+  private mode = "create";
+  private dashboardId: string;
+
+
+  idDrugName: string;
+  idSpc: string;
+  idBatch: string;
+
+
+  private medisSub: Subscription;
+  private spcsSub: Subscription;
+  private drugsSub: Subscription;
+
+  medis: Medi[] = [];
+  spcs: Spc[] = [];
+  drug: Drug[] = [];
+
+  constructor(
+    public dashboardsService: DashboardsService,
+    public route: ActivatedRoute,
+    public medisService: MedisService,
+    public spcsService: SpcsService,
+    public drugsService: DrugsService,
+  ) {}
+
 
 
   //chart here
@@ -29,7 +94,7 @@ export class DashboardComponent implements OnInit {
 
   //end chart
 
-  constructor() { }
+
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -166,6 +231,88 @@ export class DashboardComponent implements OnInit {
 
       //start animation for the Emails Subscription Chart
       this.startAnimationForBarChart(websiteViewsChart);
+
+
+
+
+      //Drug allocation code
+
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      if (paramMap.has("dashboardId")) {
+        this.mode = "edit";
+        this.dashboardId = paramMap.get("dashboardId");
+        this.isLoading = true;
+        this.dashboardsService.getDashboard(this.dashboardId).subscribe(dashboardData => {
+          this.isLoading = false;
+          this.dashboard = {
+            id: dashboardData._id,
+            DrugName: dashboardData.DrugName,
+            Batch: dashboardData.Batch,
+            Spc: dashboardData.Spc,
+            Quentity: dashboardData.Quentity
+          };
+          // this.form.setValue({
+          //   'DrugName': this.drug.DrugName,
+          //   'Batch' : this.drug.Batch,
+          //   'ExpiryDate' : this.drug.ExpiryDate,
+          //   'Quentity' : this.drug.Quentity
+          // });
+        });
+
+      } else {
+        this.mode = 'create';
+        this.dashboardId = null;
+      }
+    });
+
+    //getting Medicine names
+    this.isLoading = true;
+    this.medisService.getMedis();
+    this.medisSub = this.medisService.getMediUpdateListener()
+      .subscribe((medis: Medi[]) => {
+        this.isLoading = false;
+        this.medis = medis;
+      });
+
+
+      //getting Divisional names
+    this.isLoading = true;
+    this.spcsService.getSpcs();
+    this.spcsSub = this.spcsService.getSpcUpdateListener()
+      .subscribe((spcs: Spc[]) => {
+        this.isLoading = false;
+        this.spcs = spcs;
+      });
+
+      //getting Batch Numbers
+    this.isLoading = true;
+    this.drugsService.getDrugs();
+    this.drugsSub = this.drugsService.getDrugUpdateListener()
+      .subscribe((drugs: Drug[]) => {
+        this.isLoading = false;
+        this.drug = drugs;
+      });
+  }
+
+
+  onSaveDashboard(form:NgForm) {
+    if (form.invalid) {
+      return;
+    }
+    this.isLoading = true;
+    if (this.mode === "create") {
+      this.dashboardsService.addDashboard(this.idDrugName, form.value.idBatch,form.value.idSpc,form.value.Quentity);
+    } else {
+      this.dashboardsService.updateDashboard(
+        this.dashboardId,
+        form.value.DrugName,
+        form.value.Batch,
+        form.value.spc,
+        form.value.Quentity
+      );
+    }
+     form.resetForm();
+    //this.form.reset();
   }
 
 }

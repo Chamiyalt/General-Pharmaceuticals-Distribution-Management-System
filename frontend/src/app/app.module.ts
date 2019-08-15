@@ -46,7 +46,7 @@ import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HospitalDistComponent } from './hospital-dist/hospital-dist.component';
 
 import { MainDrugTableComponent } from './main-drug-table/main-drug-table.component';
@@ -56,6 +56,9 @@ import { from } from 'rxjs';
 
 import { LoginComponent } from './Auth/login/login.component';
 import { SignUpComponent } from './Auth/signup/signup.component';
+import { AuthInterceptor } from './Auth/auth-interceptor';
+// import { DivisionalDrugQuentityComponent } from './divisional-drug-quentity/divisional-drug-quentity.component';
+// import { DashboardDisplayComponent } from './dashboard-display/dashboard-display.component';
 
 
 
@@ -103,16 +106,17 @@ import { SignUpComponent } from './Auth/signup/signup.component';
 
 
 
-
     LoginComponent,
     SignUpComponent,
+    // DivisionalDrugQuentityComponent,
+    // DashboardDisplayComponent,
 
 
 
 
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor , multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
