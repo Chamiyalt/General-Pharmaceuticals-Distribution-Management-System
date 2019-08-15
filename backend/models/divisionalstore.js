@@ -5,6 +5,7 @@ const divisionalStore = mongoose.Schema({
   Batch: { type: String, required: true },
   ExpiryDate: { type: Date, required: true },
   Quentity: { type: String, required: true },
+  Name: { type: String, required: true },
 
 });
 
