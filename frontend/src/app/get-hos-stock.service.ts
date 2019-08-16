@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { hosStock } from "./models/getHosStock.model.1";
+import { hosStock } from "./getHosStock.model.1";
 import { Subject } from 'rxjs';
 
 
@@ -31,7 +31,7 @@ export class GetHosStockService {
             quentity : hosStock.quentity,
             preQty :hosStock.preQty,
             city: hosStock.city
-
+           
           };
         });
       }))
@@ -46,7 +46,7 @@ export class GetHosStockService {
     return this.http.get<{_id: string , city: string , DrugName: string ,quentity: number ,Hname: string}>(
       "http://localhost:3000/api/hospitalquentities/" + id);
    }
-
+ 
 
   getStockUpdateListener() {
     return this.hosUpdated.asObservable();
