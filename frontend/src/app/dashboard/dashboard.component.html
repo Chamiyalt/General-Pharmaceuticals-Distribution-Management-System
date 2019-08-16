@@ -1,91 +1,103 @@
-
-
-
-
-<div class="main-content">
-    <div class="container-fluid ">
-
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header card-header-primary">
-                        <h4 class="card-title">Drug Issue </h4>
-                        <p class="card-category">Details</p>
-                    </div>
-                    <div class="card-body">
-
-                        <form (submit)="trnsferMedicine(postForm)" #postForm="ngForm" *ngIf="!isLoading">
-
-                        <div class="row">
-                          <div class="col-md-4">
-
-                            <mat-form-field class="example-full-width">
-                                <mat-label>Drug Name</mat-label>
-                                  <mat-select [(value)]="idDrugName" >
-
-                                    <mat-option *ngFor="let medi of medis" [value]="medi.Drug" >
-                                      {{medi.Drug}}
-                                    </mat-option>
-                                  </mat-select>
-                            </mat-form-field>
-
-                          </div>
-
-
-
-
-
-
-
-                              <div class="col-md-4">
-
-                                  <mat-form-field class="example-full-width">
-                                      <mat-label>Divisional Store</mat-label>
-                                        <mat-select [(value)]="idSpc" >
-
-                                          <mat-option *ngFor="let spc of spcs" [value]="spc.OutletName" >
-                                            {{spc.OutletName}}
-                                          </mat-option>
-                                        </mat-select>
-                                  </mat-form-field>
-
-                                </div>
-
-
-
-
-
-
-
-
-
-                                </div>
-
-
-                                <div class="row">
-                                <div class="col-md-4">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Quentity" name="Quentity" ngModel type="text">
-                                  </mat-form-field>
-                                </div>
-                            </div>
-
-
-                            <button mat-raised-button type="submit" class="btn btn-primary btn-round pull-right">Transfer</button>
-                            <div class="clearfix"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-
-    </div>
-</div>
-
-
-
-
 <div class="main-content">
   <div class="container-fluid">
+
+
+     <!-- Example single danger button -->
+<!-- <div class="btn-group">
+    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Action
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+  </div> -->
+
+      <!-- <div>
+          <div style="display: block">
+            <canvas baseChart
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                  [legend]="barChartLegend"
+                  [chartType]="barChartType"></canvas>
+          </div>
+        </div> -->
+
+
+      <!-- <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-warning card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">content_copy</i>
+                      </div>
+                      <p class="card-category">Used Space</p>
+                      <h3 class="card-title">49/50
+                          <small>GB</small>
+                      </h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons text-danger">warning</i>
+                          <a href="#pablo">Get More Space...</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-success card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">store</i>
+                      </div>
+                      <p class="card-category">Revenue</p>
+                      <h3 class="card-title">$34,245</h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">date_range</i> Last 24 Hours
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-danger card-header-icon">
+                      <div class="card-icon">
+                          <i class="material-icons">info_outline</i>
+                      </div>
+                      <p class="card-category">Fixed Issues</p>
+                      <h3 class="card-title">75</h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">local_offer</i> Tracked from Github
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                  <div class="card-header card-header-info card-header-icon">
+                      <div class="card-icon">
+                          <i class="fa fa-twitter"></i>
+                      </div>
+                      <p class="card-category">Followers</p>
+                      <h3 class="card-title">+245</h3>
+                  </div>
+                  <div class="card-footer">
+                      <div class="stats">
+                          <i class="material-icons">update</i> Just Updated
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div> -->
+
       <div class="row">
           <div class="col-md-4">
               <div class="card card-chart">
@@ -138,7 +150,115 @@
           </div>
       </div>
 
+       <div class="row">
+
+
+          
+
+
+           <div class="col-lg-12 col-md-12">
+              
+            <div class="card">
+
+
+
+                            
+                <div class="card-header card-header-danger">
+                    <h4 class="card-title ">Drug List</h4>
+                    
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                       
+                            <table mdbTable class="table">
+                                    <thead class="">
+                                            <th>
+                                                Name
+                                            </th>
+                                            <th>
+                                                Batch
+                                            </th>
+                                            <th>
+                                                Expiry Date
+                                            </th>
+                                            <th>
+                                                Quantity
+                                            </th>
+                                            
+                                        </thead>
+                                    <tbody>
+                                      <tr mdbTableCol *ngFor="let drug of drugs">
+                                        <th >{{drug.DrugName}}</th>
+                                        <th >{{drug.Batch}}</th>
+                                        <th >{{drug.ExpiryDate  | date: 'yyyy-MM-dd'}}</th>
+                                        <th >{{drug.Quentity}}</th>
+                                       
+                                      </tr>
+                                    </tbody>
+                                  </table>
+
+                    </div>
+                </div>
+            </div>
+
+          </div>
+      </div>
+
+      <div class="row">
+
+
+          
+
+
+            <div class="col-lg-12 col-md-12">
+               
+             <div class="card">
+ 
+ 
+ 
+                             
+                 <div class="card-header card-header-danger">
+                     <h4 class="card-title ">Stock List</h4>
+                     
+                 </div>
+                 <div class="card-body">
+                     <div class="table-responsive">
+                        
+                             <table mdbTable class="table">
+                                     <thead class="">
+                                             <th>
+                                                 DrugName
+                                             </th>
+                                             <th>
+                                                 Hospital
+                                             </th>
+                                             <th>
+                                                 %
+                                             </th>
+                                             
+                                             
+                                         </thead>
+                                     <tbody>
+                                       <tr mdbTableCol *ngFor="let hos of cityHos">
+                                         <th >{{hos.DrugName}}</th>
+                                         <th >{{hos.Hname}}</th>
+                                        
+                                         <th >{{hos.per}}</th>
+                                        
+                                       </tr>
+                                     </tbody>
+                                   </table>
+ 
+                     </div>
+                 </div>
+             </div>
+ 
+           </div>
+       </div>
   </div>
 </div>
 
 
+<!--
+<h1>This is front end</h1>
+<h2>include some summery of the meditracker</h2> -->
