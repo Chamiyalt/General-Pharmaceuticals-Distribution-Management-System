@@ -14,28 +14,34 @@ import { UserRoleSave } from '../userrole.model';
 export class UserRole implements OnInit {
 
   isLoading = false;
-  role = 'admin' ;
+  isRemeber: boolean;
+  role = 'admin';
 
 
   roles: UserRoleSave[] = [
-    {value: 'admin', viewValue: 'Operator'},
-    {value: 'division', viewValue: 'Divisional Officer'},
-    {value: 'hospital', viewValue: 'Dispencer'},
-    {value: 'ministry', viewValue: 'Minisrty Officer'}
+    { value: 'admin', viewValue: 'Operator' },
+    { value: 'division', viewValue: 'Divisional Officer' },
+    { value: 'hospital', viewValue: 'Dispencer' },
+    { value: 'ministry', viewValue: 'Minisrty Officer' }
   ];
 
 
   constructor(public authDataSerice: AuthDataService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.isRemeber = false;
+  }
 
-  onsignUp(form: NgForm){
-    if(form.invalid){
+  onsignUp(form: NgForm) {
+    if (form.invalid) {
       return;
     }
-    this.authDataSerice.createUser(form.value.email,form.value.password,this.role);
+    if (form.value.rememberInput) {
+      this.authDataSerice.createUser(form.value.email, form.value.password, this.role);
+      this.isRemeber = form.value.rememberInput
+    }
     console.log('done');
 
-}
+  }
 
 }
