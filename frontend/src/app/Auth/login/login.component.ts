@@ -23,7 +23,13 @@ onLogin(form: NgForm){
   if(form.invalid){
     return;
   }
-  this.authDataService.onlogin(form.value.email,form.value.password);
+  if(form.value.rememberMe){
+    this.authDataService.onlogin(form.value.email,form.value.password);
+  }
+}
+
+rememberMe(){
+
 }
 
 }
