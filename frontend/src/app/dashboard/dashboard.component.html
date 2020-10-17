@@ -1,81 +1,64 @@
-
-
-
-
 <div class="main-content">
     <div class="container-fluid ">
 
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header card-header-primary">
-                        <h4 class="card-title">Drug Issue </h4>
-                        <p class="card-category">Details</p>
-                    </div>
-                    <div class="card-body">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-primary">
+                    <h4 class="card-title">Drug Issue </h4>
+                    <p class="card-category">Details</p>
+                </div>
+                <div class="card-body">
 
-                        <form (submit)="trnsferMedicine(postForm)" #postForm="ngForm" *ngIf="!isLoading">
+                    <form (submit)="trnsferMedicine(postForm)" #postForm="ngForm" *ngIf="!isLoading">
 
                         <div class="row">
-                          <div class="col-md-4">
+                            <div class="col-md-4">
 
-                            <mat-form-field class="example-full-width">
-                                <mat-label>Drug Name</mat-label>
-                                  <mat-select [(value)]="idDrugName" >
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Drug Name</mat-label>
+                                    <mat-select [(value)]="idDrugName">
 
-                                    <mat-option *ngFor="let medi of medis" [value]="medi.Drug" >
-                                      {{medi.Drug}}
-                                    </mat-option>
-                                  </mat-select>
-                            </mat-form-field>
+                                        <mat-option *ngFor="let medi of medis" [value]="medi.Drug">
+                                            {{medi.Drug}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
 
-                          </div>
-
-
-
-
-
-
-
-                              <div class="col-md-4">
-
-                                  <mat-form-field class="example-full-width">
-                                      <mat-label>Divisional Store</mat-label>
-                                        <mat-select [(value)]="idSpc" >
-
-                                          <mat-option *ngFor="let spc of spcs" [value]="spc.OutletName" >
-                                            {{spc.OutletName}}
-                                          </mat-option>
-                                        </mat-select>
-                                  </mat-form-field>
-
-                                </div>
-
-
-
-
-
-
-
-
-
-                                </div>
-
-
-                                <div class="row">
-                                <div class="col-md-4">
-                                  <mat-form-field class="example-full-width">
-                                    <input matInput placeholder="Quentity" name="Quentity" ngModel type="text">
-                                  </mat-form-field>
-                                </div>
                             </div>
 
+                            <div class="col-md-4">
 
-                            <button mat-raised-button type="submit" class="btn btn-primary btn-round pull-right">Transfer</button>
-                            <div class="clearfix"></div>
-                        </form>
-                    </div>
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Divisional Store</mat-label>
+                                    <mat-select [(value)]="idSpc">
+
+                                        <mat-option *ngFor="let spc of spcs" [value]="spc.OutletName">
+                                            {{spc.OutletName}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Quentity" name="Quentity" ngModel type="text">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+
+                        <button mat-raised-button type="submit"
+                            class="btn btn-primary btn-round pull-right">Transfer</button>
+                        <div class="clearfix"></div>
+                    </form>
                 </div>
             </div>
+        </div>
 
 
     </div>
@@ -85,169 +68,139 @@
 
 
 <div class="main-content">
-  <div class="container-fluid">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Drug List</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table mdbTable class="table">
+                                <thead class="">
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Batch
+                                    </th>
+                                    <th>
+                                        Expiry Date
+                                    </th>
+                                    <th>
+                                        Quantity
+                                    </th>
 
+                                </thead>
+                                <tbody>
+                                    <tr mdbTableCol *ngFor="let drug of drugs">
+                                        <th>{{drug.DrugName}}</th>
+                                        <th>{{drug.Batch}}</th>
+                                        <th>{{drug.ExpiryDate  | date: 'yyyy-MM-dd'}}</th>
+                                        <th>{{drug.Quentity}}</th>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
         <div class="row">
+            <div class="col-lg-12 col-md-12">
 
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Stock List</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
 
-          
+                            <table mdbTable class="table">
+                                <thead class="">
+                                    <th>
+                                        DrugName
+                                    </th>
+                                    <th>
+                                        Hospital
+                                    </th>
+                                    <th>
+                                        %
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr mdbTableCol *ngFor="let hos of cityHos">
+                                        <th>{{hos.DrugName}}</th>
+                                        <th>{{hos.Hname}}</th>
 
+                                        <th>{{hos.per}}</th>
 
-                <div class="col-lg-12 col-md-12">
-                   
-                 <div class="card">
-     
-     
-     
-                                 
-                     <div class="card-header card-header-danger">
-                         <h4 class="card-title ">Drug List</h4>
-                         
-                     </div>
-                     <div class="card-body">
-                         <div class="table-responsive">
-                            
-                                 <table mdbTable class="table">
-                                         <thead class="">
-                                                 <th>
-                                                     Name
-                                                 </th>
-                                                 <th>
-                                                     Batch
-                                                 </th>
-                                                 <th>
-                                                     Expiry Date
-                                                 </th>
-                                                 <th>
-                                                     Quantity
-                                                 </th>
-                                                 
-                                             </thead>
-                                         <tbody>
-                                           <tr mdbTableCol *ngFor="let drug of drugs">
-                                             <th >{{drug.DrugName}}</th>
-                                             <th >{{drug.Batch}}</th>
-                                             <th >{{drug.ExpiryDate  | date: 'yyyy-MM-dd'}}</th>
-                                             <th >{{drug.Quentity}}</th>
-                                            
-                                           </tr>
-                                         </tbody>
-                                       </table>
-     
-                         </div>
-                     </div>
-                 </div>
-     
-               </div>
-           </div>
-     
-           <div class="row">
-     
-     
-               
-     
-     
-                 <div class="col-lg-12 col-md-12">
-                    
-                  <div class="card">
-      
-      
-      
-                                  
-                      <div class="card-header card-header-danger">
-                          <h4 class="card-title ">Stock List</h4>
-                          
-                      </div>
-                      <div class="card-body">
-                          <div class="table-responsive">
-                             
-                                  <table mdbTable class="table">
-                                          <thead class="">
-                                                  <th>
-                                                      DrugName
-                                                  </th>
-                                                  <th>
-                                                      Hospital
-                                                  </th>
-                                                  <th>
-                                                      %
-                                                  </th>
-                                                  
-                                                  
-                                              </thead>
-                                          <tbody>
-                                            <tr mdbTableCol *ngFor="let hos of cityHos">
-                                              <th >{{hos.DrugName}}</th>
-                                              <th >{{hos.Hname}}</th>
-                                             
-                                              <th >{{hos.per}}</th>
-                                             
-                                            </tr>
-                                          </tbody>
-                                        </table>
-      
-                          </div>
-                      </div>
-                  </div>
-      
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card card-chart">
+                    <div class="card-header card-header-success">
+                        <div class="ct-chart" id="dailySalesChart"></div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">UpComming Deseases</h4>
+                        <p class="card-category">
+                            <!-- <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p> -->
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <!-- <i class="material-icons">access_time</i> updated 4 minutes ago -->
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="card card-chart">
+                    <div class="card-header card-header-warning">
+                        <div class="ct-chart" id="websiteViewsChart"></div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Drug Issued In last Year</h4>
+                        <!-- <p class="card-category">Last Campaign Performance</p> -->
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <!-- <i class="material-icons">access_time</i> campaign sent 2 days ago -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-chart">
+                    <div class="card-header card-header-danger">
+                        <div class="ct-chart" id="completedTasksChart"></div>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Ongoing Deases</h4>
+                        <!-- <p class="card-category">Last Campaign Performance</p> -->
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <!-- <i class="material-icons">access_time</i> campaign sent 2 days ago -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-
-      <div class="row">
-          <div class="col-md-4">
-              <div class="card card-chart">
-                  <div class="card-header card-header-success">
-                      <div class="ct-chart" id="dailySalesChart"></div>
-                  </div>
-                  <div class="card-body">
-                      <h4 class="card-title">UpComming Deseases</h4>
-                      <p class="card-category">
-                          <!-- <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p> -->
-                  </div>
-                  <div class="card-footer">
-                      <div class="stats">
-                          <!-- <i class="material-icons">access_time</i> updated 4 minutes ago -->
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-4">
-              <div class="card card-chart">
-                  <div class="card-header card-header-warning">
-                      <div class="ct-chart" id="websiteViewsChart"></div>
-                  </div>
-                  <div class="card-body">
-                      <h4 class="card-title">Drug Issued In last Year</h4>
-                      <!-- <p class="card-category">Last Campaign Performance</p> -->
-                  </div>
-                  <div class="card-footer">
-                      <div class="stats">
-                          <!-- <i class="material-icons">access_time</i> campaign sent 2 days ago -->
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="col-md-4">
-              <div class="card card-chart">
-                  <div class="card-header card-header-danger">
-                      <div class="ct-chart" id="completedTasksChart"></div>
-                  </div>
-                  <div class="card-body">
-                      <h4 class="card-title">Ongoing Deases</h4>
-                      <!-- <p class="card-category">Last Campaign Performance</p> -->
-                  </div>
-                  <div class="card-footer">
-                      <div class="stats">
-                          <!-- <i class="material-icons">access_time</i> campaign sent 2 days ago -->
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-  </div>
+    </div>
 </div>
-
-
