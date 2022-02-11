@@ -31,7 +31,7 @@
     "@angular/platform-server": "7.0.2",
     "@angular/router": "7.0.2",
     "@coachcare/datepicker": "^1.0.0",
-    "ajv": "6.4.0",
+    "ajv": "6.12.3",
     "angular": "^1.7.8",
     "angular-animate": "^1.7.8",
     "angular-aria": "^1.7.8",
